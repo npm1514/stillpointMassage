@@ -51,7 +51,10 @@
 
         </div>
       </header>
-      <ui-view></ui-view>
+
+        <ui-view ng-controller="mainCtrl"></ui-view>
+
+
       <footer>
         <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
       </footer>
@@ -71,8 +74,9 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
       <script src="./app.js"></script>
-      <script src="./mainCtrl.js"></script>
+      <script src="./controllers/mainCtrl.js"></script>
       <script src="./mainService.js"></script>
+      <script src="./controllers/practiceCtrl.js"></script>
 
     </body>
 

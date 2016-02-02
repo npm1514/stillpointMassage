@@ -19,6 +19,7 @@ angular.module("stillpointMassage", ['ui.router'])
       })
       .state('practice', {
         url: '/practice',
+        controller: 'practiceCtrl',
         templateUrl: './pages/practice.html'
       })
       .state('apprate', {
@@ -41,8 +42,7 @@ angular.module("stillpointMassage", ['ui.router'])
     $('.exitlogin').on('click', function(){
       $('.loginbox').hide();
     });
-    $('.button1').on('click', function(){
-      $('.toggle1').hide();
-    });
-
+    // $('.button1').on('click', function(){
+    //   $('.toggle1').slideToggle();
+    // });
   });
