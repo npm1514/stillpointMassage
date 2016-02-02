@@ -3,46 +3,32 @@ angular.module("stillpointMassage", ['ui.router'])
       $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "./pages/home.html"
+        templateUrl: "home.html"
       })
       .state('about', {
         url: '/about',
-        templateUrl: './pages/about.html'
+        templateUrl: 'templates/about.html'
       })
       .state('services', {
         url: '/services',
-        templateUrl: './pages/services.html'
+        templateUrl: 'templates/services.html'
       })
       .state('practitioners', {
         url: '/practitioners',
-        templateUrl: './pages/practitioners.html'
+        templateUrl: 'templates/practitioners.html'
       })
       .state('practice', {
         url: '/practice',
-        templateUrl: './pages/practice.html'
+        templateUrl: 'templates/practice.html'
       })
       .state('apprate', {
         url: '/apprate',
-        templateUrl: './pages/apprate.html'
+        templateUrl: 'templates/apprate.html'
       })
       .state('testimonials', {
         url: '/testimonials',
-        templateUrl: './pages/testimonials.html'
+        templateUrl: 'templates/testimonials.html'
       });
       $urlRouterProvider
         .otherwise('/');
-  });
-
-  $(document).ready(function(){
-
-    $('.login').on('click', function(){
-      $('.loginbox').show();
-    });
-    $('.exitlogin').on('click', function(){
-      $('.loginbox').hide();
-    });
-    $('.button1').on('click', function(){
-      $('.toggle1').hide();
-    });
-
   });

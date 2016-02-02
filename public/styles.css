@@ -1,73 +1,240 @@
 body, header, footer, .main {
   width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-}
 p, h1, h2, h3, h4, h5, h6 {
   border: 0;
   margin: 0;
+  font-family: 'Avenir LT Std 45 Book'
 }
 
 p {
-
+  font-size: 15px;
 }
 
 h1 {
-
+  font-size: 50px;
+  color: #fff;
 }
 
 h2 {
-
+  font-size: 20px;
+  color: #3c3c3c;
 }
 
 h3 {
-
+  font-size: 15px;
+  font-weight: bold;
+  color: #3c3c3c;
 }
 
 h4 {
 
 }
+
+h5 {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+h6 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+[ui-sref, href] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #089e93;
+}
+
 body {
-  background-color: #182827;
+
 }
+
 header {
-  background-image: url("Images/bg_jljv.jpg");
-  height: 180px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #7A4E2B;
+  margin-bottom: 20px;
 }
+
+.testimonials {
+  text-align: right;
+  padding-right: 5%;
+}
+
+.logo {
+  margin-left: 10%;
+  text-align: left;
+}
+
+.logo img{
+  height: 150px;
+  width: 150px;
+}
+
 .nav {
   background-color: #fff;
-  height: 75px;
   text-align: right;
+  padding:10px 5%;
+  padding-top: 10px;
+
 }
 
-
 .nav a {
-  text-decoration: none;
-  color: #457066;
-  font-family: Arial;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 5px;
+  color: #3c3c3c;
+  padding: 3px;
+  margin: 5px;
 }
 
 .nav a:hover {
-  color: #fff;
-  background-color: teal;
+  border-bottom: 3px solid #089e93;
 }
 
-.phone {
-  color: #457066;
-  font-size: 20px;
-  margin: 10px;
+.hometitle {
+  color: #089e93;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #7A4E2B;
 }
-.main {
+
+.homebanner {
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1448216118999-7a3f98dc37f2?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+}
+
+.aboutbanner {
+  height: 300px;
+  background-image: url('http://www.lifeofpix.com/wp-content/uploads/2015/06/Life-of-Pix-free-stock-photos-back-flower-window-santalla.jpg');
+  background-position: center;
+}
+
+.appratebanner {
+  height: 300px;
+  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/AYSVGBFCHG.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.practicebanner {
+  height: 300px;
+  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/XDRW3QDNN7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.practitionersbanner {
+  height: 300px;
+  background-image: url('https://images.unsplash.com/photo-1446569971295-057569541991?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.servicesbanner {
+  height: 300px;
+  background-image: url('https://images.unsplash.com/34/rcaNUh3pQ9GD8w7Iy8qE__DSC0940.jpg?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.testimonialsbanner {
+  height: 300px;
+  background-image: url('https://images.unsplash.com/photo-1427096105551-15e2512fd2dc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=b7a34944fa430c8ddfb37d360d99f862');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bannertext {
+  padding-top: 105px;
+}
+
+.bannertext h1 {
+  padding: 15px;
+}
+
+.bannertext h2 {
+  padding: 10px;
+}
+
+.maintext {
+  margin: 20px 0px;
+  border-top: 1px solid #7A4E2B;
+  border-bottom:1px solid #7A4E2B;
+}
+
+.pagetext {
+  max-width: 760px;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.pagetext h2, .pagetext h3 {
+  padding: 20px;
+}
+
+.loginbox {
+  border: 1px solid #8d8d8d;
+  border-radius: 5px;
+  width: 350px;
+  height: 175px;
+  margin:auto;
   background-color: #fff;
-  height: 800px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  font-family: 'Avenir LT Std 45 Book'
 }
-footer {
 
+form {
+  margin: 20px;
+}
+
+input {
+  width: 250px;
+  margin: 5px;
+  font-family: 'Avenir LT Std 45 Book'
+}
+
+.exitlogin {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: 1px solid #8d8d8d;
+  border-radius: 1px;
+  padding: 0 5px;
+}
+
+.exitlogin h3 {
+  color: red;
+}
+
+button {
+  margin: 5px;
+  font-family: 'Avenir LT Std 45 Book'
+}
+
+footer {
+  background-color: #7A4E2B;
+  height: 40px;
+  padding-left: 10%;
+  padding-top: 20px;
+  text-align: left;
+}
+
+ui-view {
+  z-index: 100;
 }

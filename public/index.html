@@ -2,59 +2,74 @@
   <html ng-app="stillpointMassage">
 
     <head>
-      <title>stillpointMassage</title>
-      <meta name="description" content="stillpointMassage">
-      <meta name="keywords" content="stillpointMassage">
-      <meta property="og:site_name" content="stillpointMassage">
-      <meta property="og:title" content="stillpointMassage">
-      <meta property="og:description" content="stillpointMassage">
-      <meta property="og:image" content="">
-      <meta property="og:url" content="">
+      <title>The Stillpoint Therapeutic Massage Center</title>
+      <meta name="description" content="The Stillpoint Therapeutic Massage Center provides excellent quality therapeutic treatment in a relaxed and quiet atmosphere in Cleveland for your specific needs.">
+      <meta name="keywords" content="Therapeutic Massage Cleveland">
+      <meta property="og:site_name" content="The Stillpoint Therapeutic Massage Center">
+      <meta property="og:title" content="The Stillpoint Therapeutic Massage Center">
+      <meta property="og:description" content="The Stillpoint Therapeutic Massage Center provides excellent quality therapeutic treatment in a relaxed and quiet atmosphere in Cleveland for your specific needs.">
+      <meta property="og:image" content="./Images/Logo.jpg">
+      <meta property="og:url" content="http://www.stillpointmassagecenter.com">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <link href="styles.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="./fonts/style.css">
     </head>
 
     <body ng-controller="mainCtrl" ng-cloak>
-      <div class="container">
-        <header>
-          <div class="logo">
-            <a href="#"></a>
-          </div>
-          <div class="pics">
-            <img src="" alt="" />
-          </div>
-        </header>
+      <header>
+        <div class="testimonials">
+          <h6>Want to hear what our clients have to say about us? <a ui-sref="testimonials">See their testimonials here.</a></h6>
+        </div>
+        <div class="logo">
+          <a ui-sref="home"><img src="./Images/Logo.jpg" alt="" /></a>
+        </div>
         <div class="nav">
-          <div class="topnav">
-            <a href="#">Our Story</a>
-            <a href="#">Services</a>
-            <a href="#">Therapies</a>
-            <a href="#">Treating Athletes</a>
-            <a href="#">Treating Health Issues</a>
-            <a href="#">Appointments And Rates</a>
-            <a href="#">Practitioners</a>
-            <a href="#">Testimonials</a>
-          </div>
-          <div class="bottomnav">
-            <a href="#">Home Page</a>
-          </div>
-          <div class="phone">
-            <h3>(330) 650-1227</h3>
-          </div>
-        </div>
+          <!-- do media query for small screen menu -->
+          <h5>
+            <!-- About Us -->
+            <a ui-sref="about">About Us</a>
+            <!-- <a ui-sref="#">Our Story</a> -->
 
-        <div class="main">
-          <h1>Welcome To The Stillpoint Therapeutic Massage Center</h1>
-          <h3>"Our philosophy is dedicated to supporting your healing and ultimate return to everyday activities."</h3>
+            <!-- Services -->
+            <a ui-sref="services">Services</a>
+            <!-- <a ui-sref="#">Therapies</a> -->
+
+            <!-- Our Practice -->
+            <a ui-sref="practice">Our Practice</a>
+            <!-- <a ui-sref="#">Treating Athletes</a>
+            <a ui-sref="#">Treating Health Issues</a> -->
+
+            <!-- Practitioners -->
+            <a ui-sref="practitioners">Practitioners</a>
+
+            <!-- Appointments and Rates -->
+            <a ui-sref="apprate">Appointments/Rates</a>
+
+            <!-- Login -->
+            <a class="login" href="">Login/Register</a>
+          </h5>
+
         </div>
-        <footer>
-        </footer>
+      </header>
+      <ui-view></ui-view>
+      <footer>
+        <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
+      </footer>
+      <div class="loginbox">
+        <form class="" action="index.html" method="post">
+          Username<input type="text" name="name" value="" placeholder="Enter Username" >
+          Password<input type="password" name="name" value="" placeholder="Enter Password">
+          <button type="button" name="button">Login/Register</button>
+          <a href="" class="exitlogin">
+            <h3>x</h3>
+          </a>
+        </form>
       </div>
 
-
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
       <script src="./app.js"></script>
       <script src="./mainCtrl.js"></script>
       <script src="./mainService.js"></script>
