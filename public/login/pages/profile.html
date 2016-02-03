@@ -1,44 +1,60 @@
 <div class="main">
   <div class="left">
     <div class="profile">
-      <img src="" alt="" />
-      <h2>Name:</h2>
-      <p>Age:</p>
+      <div class="profilepic">
+        <p>Your picture goes here.</p>
+        <img src="" alt="" />
 
-      <h2>Contact Information</h2>
-      <p>Phone:</p>
-      <p>Email:</p>
-      <p>Address:</p>
-      <p>Address <br> City, State Zip</p>
 
-      <h2>Insurance Information:</h2>
-      <p>Provider:</p>
+      </div>
+      <div class="personal">
+        <h2>Name:</h2>
+        <p>Age:</p>
+      </div>
+      <div class="personalcontact">
+        <h2>Contact Information</h2>
+        <p>Phone:</p>
+        <p>Email:</p>
+        <p>Address:</p>
+        <p>Address <br> City, State Zip</p>
+      </div>
+      <div class="insurance">
+        <h2>Insurance Information:</h2>
+        <p>Provider:</p>
+      </div>
+      <div class="healthinfo">
+        <h2>Health Information</h2>
+        <p>Conditions:</p>
+      </div>
 
-      <h2>Health Information</h2>
-      <p>Conditions:</p>
+
+
+
 
 
     </div>
 
   </div>
   <div class="right">
+      <!-- ng-repeat="appt in schedappts" -->
+    <h2>Scheduled Appointments</h2>
     <div class="schedappts">
-      <!-- ng-repeat="appt in schedappts" -->
-      <h2>Scheduled Appointments</h2>
       <p>Date:</p>
       <p>Time:</p>
       <p>Duration:</p>
       <p>Therapist:</p>
+    </div>
 
-    </div>
-    <div class="pastappts">
+
       <!-- ng-repeat="appt in schedappts" -->
-      <h2>Past Appointments</h2>
+    <h2>Past Appointments</h2>
+    <div class="pastappts">
       <p>Date:</p>
       <p>Time:</p>
       <p>Duration:</p>
       <p>Therapist:</p>
     </div>
+
   </div>
 
 </div>

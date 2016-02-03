@@ -52,6 +52,21 @@ a {
   color: #089e93;
 }
 
+select {
+  width: max-content;
+}
+
+select, input {
+  padding: 5px;
+  font-family: 'Avenir LT Std 45 Book';
+  margin: 5px;
+}
+
+input {
+  width: 150px;
+
+}
+
 header {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -97,9 +112,10 @@ header {
 }
 
 .left {
-  width: 49%;
+  width: 50%;
   float: left;
   border-right: 1px solid #7a4e2b;
+  min-height: 550px;
 }
 
 .right {
@@ -109,14 +125,96 @@ header {
 
 .profile {
   width: 80%;
+  margin: auto;
 }
 
-.schedappts, .schedappts h2 {
+.profilepic {
+  height: 200px;
+  width: 200px;
+  border: 2px solid #7a4e2b;
+  margin: auto;
+  background-color: #808080;
+  position: relative;
+
+}
+
+.profilepic p {
+  position: absolute;
+  top: 70px;
+  margin: 20px;
+}
+
+.profilepic img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.schedappts, .right h2, .pastappts, .profilepic, .personal, .personalcontact, .insurance, .healthinfo {
   margin-bottom: 10px;
 }
 
-.pastappts, .pastappts h2 {
-  margin-bottom: 10px;
+.newappt, .newappt h2, .billing h2, .left h2 {
+  margin-bottom: 20px;
+}
+
+.billing h2, .newappt h2 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #7a4e2b;
+}
+
+.calendar {
+  width: 80%;
+  height: calc(100vh - 300px);
+  border: 1px solid #7a4e2b;
+  margin: 20px auto;
+}
+
+.appointment {
+  border: 1px solid #7a4e2b;
+  padding: 20px;
+  width: max-content;
+  margin: auto;
+}
+
+.appointment p {
+  text-align: right;
+}
+
+.revieworder {
+  width: 200px;
+  height: 25px;
+  padding: 10px;
+  background-color: #089e93;
+  border: 1px solid #7a4e2b;
+  margin: auto;
+  clear: both;
+}
+
+.revieworder:hover {
+  background-color: #8d8d8d;
+}
+
+.paymentinfo {
+  width: max-content;
+  margin: auto;
+}
+
+.payleft {
+  float: left;
+  margin: 15px 10px;
+}
+
+.payleft h3 {
+  padding: 5px;
+  margin: 10px;
+}
+
+.payright {
+  float: left;
+  margin: 15px 10px;
+  text-align: left;
 }
 
 .button {
@@ -150,4 +248,37 @@ footer {
 
 footer h6 {
   margin-left: 10%;
+}
+
+@media only screen and (max-width: 685px) {
+  header {
+    height: 200px;
+  }
+  .button {
+    top: 175px;
+  }
+  .left {
+    width: 100%;
+    float: none;
+    border: none;
+    min-height: 0;
+    padding-bottom: 25px;
+  }
+  .right {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-top: 1px solid #7a4e2b;
+    border-bottom: 1px solid #7a4e2b;
+    width: 100%;
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .nav {
+    float: none;
+  }
+  header {
+    height: 250px;
+  }
 }
