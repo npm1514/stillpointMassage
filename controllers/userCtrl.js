@@ -20,6 +20,16 @@ var userModel = require('./../models/userModel.js');
         res.send(result);
       });
     },
+    read2: function(req, res) {
+      userModel
+      .findById(req.params.id)
+      .exec(function (err, result) {
+        if (err) {
+          res.send(err);
+        }
+        res.send(result);
+      });
+    },
     update: function(req, res){
       userModel
       .findByIdAndUpdate(req.params.id, req.body, function(err, result){

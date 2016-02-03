@@ -21,6 +21,7 @@ var express = require('express');
 
   app.post('/user', userCtrl.create);
   app.get('/user', userCtrl.read);
+  app.get('/user/:id', userCtrl.read2);
   app.put('/user/:id', userCtrl.update);
   app.delete('/user/:id', userCtrl.delete);
 

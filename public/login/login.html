@@ -4,56 +4,35 @@
     <head>
       <title>The Stillpoint Therapeutic Massage Center</title>
       <link href="./loginstyles.css" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="./fonts/style.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="./loginstyles.css">
+      <link rel="stylesheet" href="./../fonts/style.css">
     </head>
 
     <body ng-controller="mainCtrl">
       <header>
-        <div class="testimonials">
-          <h6>Want to hear what our clients have to say about us? <a ui-sref="testimonials">See their testimonials here.</a></h6>
-        </div>
         <div class="logo">
-          <a ui-sref="home"><img src="./Images/Logo.jpg" alt="" /></a>
-          <i class="fa fa-bars"></i>
+          <a ui-sref="home"><img src="./../Images/Logo.jpg" alt="" /></a>
         </div>
         <div class="nav">
-            <a ui-sref="about"><h5>About Us</h5></a>
-            <a ui-sref="services"><h5>Services</h5></a>
-            <a ui-sref="practice"><h5>Our Practice</h5></a>
-            <a ui-sref="practitioners"><h5>Practitioners</h5></a>
-            <a ui-sref="apprate"><h5>Appointments/Rates</h5></a>
-            <a ui-sref="contact"><h5>Contact Us</h5></a>
-            <a class="login" href=""><h5>Login/Register</h5></a>
+            <a href="./../index.html"><h5>Return to Site</h5></a>
         </div>
       </header>
 
-        <ui-view ng-cloak></ui-view>
+      <ui-view ng-cloak></ui-view>
 
       <footer>
         <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
       </footer>
-      <div class="loginbox">
-        <form class="" action="index.html" method="post">
-          Username<input type="text" name="name" value="" placeholder="Enter Username" >
-          Password<input type="password" name="name" value="" placeholder="Enter Password">
-          <button type="button" href="./login/login.html" name="button">Login/Register</button>
-          <a href="" class="exitlogin">
-            <h3>x</h3>
-          </a>
-        </form>
-      </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
       <script src="./app.js"></script>
-      <script src="./controllers/mainCtrl.js"></script>
-      <script src="./mainService.js"></script>
-      <script src="./controllers/practiceCtrl.js"></script>
-      <script src="./controllers/apprateCtrl.js"></script>
-      <script src="./controllers/practitionersCtrl.js"></script>
+      <script src="./controllers/apptCtrl.js"></script>
+      <script src="./controllers/apptService.js"></script>
+      <script src="./controllers/userCtrl.js"></script>
+      <script src="./controllers/userService.js"></script>
 
     </body>
   <html>
