@@ -175,7 +175,8 @@ header {
   border: 1px solid #7a4e2b;
   padding: 20px;
   width: max-content;
-  margin: auto;
+  margin: 20px auto;
+  display: inline-block;
 }
 
 .appointment p {
@@ -201,6 +202,18 @@ header {
   margin: auto;
 }
 
+
+
+.appointment p {
+  text-align: right;
+}
+
+
+.appointment h2 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #7a4e2b;
+}
+
 .payleft {
   float: left;
   margin: 15px 10px;
@@ -215,6 +228,22 @@ header {
   float: left;
   margin: 15px 10px;
   text-align: left;
+}
+
+.congrats {
+  height: max-content;
+  background-color: #7a4e2b;
+  margin-bottom: 20px;
+}
+
+.congrats h1 {
+  color: #fff;
+  margin: 10px;
+}
+
+.congrats h2 {
+  color: #3c3c3c;
+  margin: 10px;
 }
 
 .button {
