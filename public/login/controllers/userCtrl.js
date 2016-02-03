@@ -1,4 +1,4 @@
-angular.module("stillpointMassage").controller("mainCtrl", function($scope, mainService) {
+angular.module("personalView").controller("userCtrl", function($scope, mainService) {
     $scope.products = {};
     $scope.getProducts = function () {
       mainService.getProducts().then(function(response){
@@ -25,4 +25,3 @@ angular.module("stillpointMassage").controller("mainCtrl", function($scope, main
       });
     };
   });
-  

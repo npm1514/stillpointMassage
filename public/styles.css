@@ -31,6 +31,8 @@ h3 {
 }
 
 h4 {
+  color: #089e93;
+  font-size: 12px;
 
 }
 
@@ -54,6 +56,12 @@ a {
   color: #089e93;
 }
 
+iframe {
+  margin-top: 25px;
+  height:400px;
+  width: 600px;
+}
+
 body {
 
 }
@@ -62,6 +70,7 @@ header {
   padding-bottom: 10px;
   border-bottom: 1px solid #7A4E2B;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .testimonials {
@@ -70,13 +79,21 @@ header {
 }
 
 .logo {
-  margin-left: 10%;
-  text-align: left;
+  display: inline-block;
+  width: 100%;
 }
 
 .logo img{
+  margin-left: 10%;
   height: 150px;
   width: 150px;
+  float: left;
+}
+.logo i {
+  color: #000;
+  font-size: 40px;
+  margin: 55px;
+  float: right;
 }
 
 .nav {
@@ -84,13 +101,15 @@ header {
   text-align: right;
   padding:10px 5%;
   padding-top: 10px;
-
+  display: inline-block;
+  float: right;
 }
 
 .nav a {
   color: #3c3c3c;
   padding: 3px;
   margin: 5px;
+  display: inline-block;
 }
 
 .nav a:hover {
@@ -130,6 +149,15 @@ header {
   background-size: cover;
   background-position: center;
 }
+
+.contactbanner {
+  height: 300px;
+  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/S4541GKUE4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
 
 .practitionersbanner {
   height: 300px;
@@ -177,9 +205,10 @@ header {
   max-width: 760px;
   margin: auto;
   padding-bottom: 20px;
+  display: inline-block;
 }
 
-.pagetext h2, .pagetext h3 {
+.pagetext h2, .pagetext h3, .pagetext h4, .pagetext h6 {
   padding: 20px;
 }
 
@@ -213,8 +242,6 @@ input {
   position: absolute;
   top: 5px;
   right: 5px;
-  border: 1px solid #8d8d8d;
-  border-radius: 1px;
   padding: 0 5px;
 }
 
@@ -222,19 +249,129 @@ input {
   color: red;
 }
 
-button {
+.practiceinfo h3 {
+  cursor: pointer;
+  width: max-content;
+  margin: auto;
+}
+
+.practiceinfo p {
+  display: none;
+}
+
+.eachperson {
+  width: 45%;
+  height: auto;
+  border: 1px solid #8d8d8d;
+  margin: 10px;
+  border-radius: 5px;
+  float: left;
+  display: inline-block;
+}
+
+.eachperson h2, .eachperson h3 {
   margin: 5px;
+  padding: 5px;
+}
+
+.eachperson p {
+  margin: 10px;
+  display: none;
+}
+
+.eachperson img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+
+}
+
+button {
+  margin: 10px;
   font-family: 'Avenir LT Std 45 Book'
 }
 
 footer {
   background-color: #7A4E2B;
   height: 40px;
-  padding-left: 10%;
   padding-top: 20px;
   text-align: left;
+  clear: both;
+}
+
+footer h6 {
+  margin-left: 10%;
 }
 
 ui-view {
   z-index: 100;
+}
+
+@media only screen and (max-width: 1030px) {
+  .nav {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .nav {
+    width: 185px;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    display: none;
+    float: none;
+  }
+  .nav h5 {
+    text-align: center;
+  }
+  .pagetext {
+    width: 100%;
+    margin: auto;
+  }
+  footer {
+    text-align: center;
+  }
+  footer h6 {
+    margin: 0;
+  }
+  .logo {
+    margin-top: 20px;
+  }
+  .testimonials {
+    text-align: center;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  footer {
+    height: 55px;
+  }
+  .eachperson {
+    width: 95%;
+    margin-top: 25px
+    margin: auto;
+    float: none;
+  }
+  .pagetext {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .logo img {
+    float: none;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+  .logo i {
+    width: 100%;
+    margin-top: 25px;
+    margin: auto;
+  }
+  footer {
+    height: 70px;
+  }
 }

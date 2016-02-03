@@ -15,6 +15,7 @@ angular.module("stillpointMassage", ['ui.router'])
       })
       .state('practitioners', {
         url: '/practitioners',
+        controller: 'practitionersCtrl',
         templateUrl: './pages/practitioners.html'
       })
       .state('practice', {
@@ -24,11 +25,16 @@ angular.module("stillpointMassage", ['ui.router'])
       })
       .state('apprate', {
         url: '/apprate',
+        controller: 'apprateCtrl',
         templateUrl: './pages/apprate.html'
       })
       .state('testimonials', {
         url: '/testimonials',
         templateUrl: './pages/testimonials.html'
+      })
+      .state('contact', {
+        url: '/contact',
+        templateUrl: './pages/contact.html'
       });
       $urlRouterProvider
         .otherwise('/');
@@ -42,7 +48,7 @@ angular.module("stillpointMassage", ['ui.router'])
     $('.exitlogin').on('click', function(){
       $('.loginbox').hide();
     });
-    // $('.button1').on('click', function(){
-    //   $('.toggle1').slideToggle();
-    // });
+    $('i').on('click', function(){
+      $('.nav').slideToggle();
+    });
   });

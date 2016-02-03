@@ -1,4 +1,4 @@
-angular.module("stillpointMassage").service("mainService", function($http) {
+angular.module("personalView").service("userService", function($http) {
     this.getProducts = function () {
       return $http ({
         method: "GET",
@@ -34,4 +34,3 @@ angular.module("stillpointMassage").service("mainService", function($http) {
       });
     };
   });
-  

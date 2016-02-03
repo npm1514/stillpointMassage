@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-  <html ng-app="stillpointMassage">
+  <html ng-app="personalView">
 
     <head>
       <title>The Stillpoint Therapeutic Massage Center</title>
-      <meta name="description" content="The Stillpoint Therapeutic Massage Center provides excellent quality therapeutic treatment in a relaxed and quiet atmosphere in Cleveland for your specific needs.">
-      <meta name="keywords" content="Therapeutic Massage Cleveland">
-      <meta property="og:site_name" content="The Stillpoint Therapeutic Massage Center">
-      <meta property="og:title" content="The Stillpoint Therapeutic Massage Center">
-      <meta property="og:description" content="The Stillpoint Therapeutic Massage Center provides excellent quality therapeutic treatment in a relaxed and quiet atmosphere in Cleveland for your specific needs.">
-      <meta property="og:image" content="./Images/Logo.jpg">
-      <meta property="og:url" content="http://www.stillpointmassagecenter.com">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <link href="styles.css" rel="stylesheet" type="text/css">
+      <link href="./loginstyles.css" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="./fonts/style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
 
-    <body>
+    <body ng-controller="mainCtrl">
       <header>
         <div class="testimonials">
           <h6>Want to hear what our clients have to say about us? <a ui-sref="testimonials">See their testimonials here.</a></h6>
@@ -41,11 +33,11 @@
       <footer>
         <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
       </footer>
-      <div class="loginbox" ng-controller="loginCtrl">
+      <div class="loginbox">
         <form class="" action="index.html" method="post">
-          Username<input type="text" name="name" value="" placeholder="Enter Username">
+          Username<input type="text" name="name" value="" placeholder="Enter Username" >
           Password<input type="password" name="name" value="" placeholder="Enter Password">
-          <button href="./login/login.html">Login/Register</button>
+          <button type="button" href="./login/login.html" name="button">Login/Register</button>
           <a href="" class="exitlogin">
             <h3>x</h3>
           </a>
@@ -57,8 +49,8 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
       <script src="./app.js"></script>
-      <script src="./controllers/loginCtrl.js"></script>
-      <script src="./controllers/loginService.js"></script>
+      <script src="./controllers/mainCtrl.js"></script>
+      <script src="./mainService.js"></script>
       <script src="./controllers/practiceCtrl.js"></script>
       <script src="./controllers/apprateCtrl.js"></script>
       <script src="./controllers/practitionersCtrl.js"></script>
