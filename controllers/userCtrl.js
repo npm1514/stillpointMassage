@@ -1,4 +1,4 @@
-var mainSchema = require('./model');
+var userModel = require('./../models/userModel.js');
 
   module.exports = {
     create: function(req, res) {
@@ -39,4 +39,3 @@ var mainSchema = require('./model');
       });
     }
   };
-  

@@ -1,9 +1,9 @@
-var mainSchema = require('./model');
+var apptModel = require('./../models/apptModel.js');
 
   module.exports = {
     create: function(req, res) {
-      var user = new userModel(req.body);
-      user.save(function(err, result){
+      var appt = new apptModel(req.body);
+      appt.save(function(err, result){
         if (err) {
           res.send(err);
         }
@@ -11,7 +11,7 @@ var mainSchema = require('./model');
       });
     },
     read: function(req, res) {
-      userModel
+      apptModel
       .find(req.query)
       .exec(function (err, result) {
         if (err) {
@@ -21,7 +21,7 @@ var mainSchema = require('./model');
       });
     },
     update: function(req, res){
-      userModel
+      apptModel
       .findByIdAndUpdate(req.params.id, req.body, function(err, result){
         if (err) {
           res.send(err);
@@ -30,7 +30,7 @@ var mainSchema = require('./model');
       });
     },
     delete: function(req, res){
-      userModel
+      apptModel
       .findByIdAndRemove(req.params.id, req.body, function(err, result){
         if (err) {
           res.send(err);
@@ -39,4 +39,3 @@ var mainSchema = require('./model');
       });
     }
   };
-  

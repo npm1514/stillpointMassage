@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 
-  var mainSchema = new mongoose.Schema({
-      username: {type: String, required:true },
-      email: {type: String, required: true},
-      password: {type: String, required: true }
+  var apptModel = new mongoose.Schema({
+      date: {type: Number, required:true},
+      time: {type: Number, required:true},
+      therapist: {type: String, required: true},
+      apptLength:{type: Number, required: true},
+      cost:{type: Number, required: true}
   });
 
-  module.exports = mongoose.model('User', mainSchema);
-  
+  module.exports = mongoose.model('Appt', apptModel);

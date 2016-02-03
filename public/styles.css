@@ -51,6 +51,11 @@ h6 {
   cursor: pointer;
 }
 
+.about1, .about2, .about3, .about4, .about5, .about6, .about7,.about8 {
+  cursor: pointer;
+  color: #089e93;
+}
+
 a {
   text-decoration: none;
   color: #089e93;
@@ -114,6 +119,12 @@ header {
 
 .nav a:hover {
   border-bottom: 3px solid #089e93;
+  color: #7a4e2b;
+}
+
+i:hover {
+  color: #089e93;
+  cursor: pointer;
 }
 
 .hometitle {
@@ -253,6 +264,10 @@ input {
   cursor: pointer;
   width: max-content;
   margin: auto;
+}
+
+.practiceinfo h3:hover {
+  color: #089e93;
 }
 
 .practiceinfo p {
