@@ -41,16 +41,18 @@
       <footer>
         <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
       </footer>
-      <div class="loginbox" ng-controller="loginCtrl">
-        <form class="" action="index.html" method="post">
-          Username<input type="text" name="name" value="" placeholder="Enter Username">
-          Password<input type="password" name="name" value="" placeholder="Enter Password">
-          <button type="button">Login/Register</button>
-          <a href="./login/login.html">Login/Register</a>
+      <div class="loginbox" ng-controller="mainCtrl">
+
+        <form  ng-submit="login(user)">
+          Username<input type="text" placeholder="Enter Username" name="username" ng-model="user.username">
+          Password<input type="password" placeholder="Enter Password" ng-model="user.password" name="password">
+          <button>Login/Register</button>
+          <!-- <a href="./login/login.html">Login/Register</a> -->
           <a href="" class="exitlogin">
             <h3>x</h3>
           </a>
         </form>
+
       </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
@@ -58,8 +60,7 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
       <script src="./app.js"></script>
-      <script src="./controllers/loginCtrl.js"></script>
-      <script src="./controllers/loginService.js"></script>
+      <script src="./controllers/mainCtrl.js"></script>
       <script src="./controllers/practiceCtrl.js"></script>
       <script src="./controllers/apprateCtrl.js"></script>
       <script src="./controllers/practitionersCtrl.js"></script>

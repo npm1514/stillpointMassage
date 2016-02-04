@@ -25,5 +25,4 @@ angular.module("personalView", ['ui.router'])
         .otherwise('/');
   })
   .controller("mainCtrl", function($scope){
-    
   });

@@ -1,30 +1,22 @@
-//create login controller and service
+angular.module("stillpointMassage").controller("mainCtrl", function($scope, $location, $http) {
 
-angular.module("stillpointMassage").controller("mainCtrl", function($scope, mainService) {
-    $scope.products = {};
-    $scope.getProducts = function () {
-      mainService.getProducts().then(function(response){
-        $scope.products = response;
-      });
-    };
-    $scope.getProducts();
+  $scope.login = function(user) {
+    $http.post('/auth', user)
+    .then(function(response){
+      console.info(response);
 
-    $scope.postProducts = function (name, description, price) {
-      var obj = {name: name, description: description, price: price};
-      console.log(obj);
-      mainService.postProducts(obj).then(function(response){
-        $scope.products = response;
-      });
-    };
-    $scope.changeProducts = function (product) {
-      mainService.changeProducts(product).then(function(response){
-        $scope.products = response;
-      });
-    };
-    $scope.deleteProducts = function (product) {
-      mainService.deleteProducts(product._id).then(function(response){
-        $scope.products = response;
-      });
-    };
+      window.location = 'http://localhost:9000/login/login.html';
+    }).catch(function (err) {
+      console.error(err);
+    });
 
-  });
+    $http.get('/user/:id')
+    .then(function (response) {
+      console.log(response);
+
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+  };
+});

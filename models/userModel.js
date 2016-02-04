@@ -1,9 +1,10 @@
-var mongoose = require('mongoose');
+var mongoose  = require('mongoose'),
+    bcrypt    = require('bcrypt-nodejs');
 
 var apptModel = require('./../models/apptModel.js');
 
   var userSchema = new mongoose.Schema({
-      username: {type: String, required:true },
+      username: {type: String, required:true, unique:true},
       password: {type: String, required: true },
       email: {type: String},
       age: {type: Number},
@@ -20,5 +21,13 @@ var apptModel = require('./../models/apptModel.js');
       provider: {type: String},
       rateDiscount: {type: Number}
   });
+
+  userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+  };
+
+  userSchema.methods.validPassword = function(password) {
+      return bcrypt.compareSync(password, this.password);
+  };
 
   module.exports = mongoose.model('User', userSchema);
