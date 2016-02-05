@@ -25,12 +25,12 @@ var express   = require('express'),
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded());
   app.use(express.static(__dirname + '/public'));
-
+//comment
 
   app.post('/auth', passport.authenticate('local-signup'), function(req, res){
     res.send();
   });
- 
+
   app.post('/user', userCtrl.create);
   app.get('/user/me', userCtrl.getme);
   app.get('/user/:id', userCtrl.read);

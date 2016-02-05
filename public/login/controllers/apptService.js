@@ -8,15 +8,18 @@ angular.module("personalView").service("apptService", function($http) {
         return response.data;
       });
     };
-    // this.postProducts = function (obj) {
-    //   return $http ({
-    //     method: "POST",
-    //     url: '/api/products',
-    //     data: obj
-    //   }).then(function (response) {
-    //     return response.data;
-    //   });
-    // };
+
+
+    this.addAppt = function (appt) {
+      return $http ({
+        method: "POST",
+        url: '/appt',
+        data: appt
+      }).then(function (response) {
+        return response.data;
+      });
+    };
+
     // this.changeProducts = function (product) {
     //   return $http ({
     //     method: "PUT",
@@ -26,12 +29,12 @@ angular.module("personalView").service("apptService", function($http) {
     //     return response.data;
     //   });
     // };
-    // this.deleteProducts = function (id) {
-    //   return $http ({
-    //     method: "DELETE",
-    //     url: '/api/products/' + id
-    //   }).then(function (response) {
-    //     return response.data;
-    //   });
-    // };
+    this.deleteAppt = function (appt) {
+      return $http ({
+        method: "DELETE",
+        url: '/appt/' + appt._id
+      }).then(function (response) {
+        return response.data;
+      });
+    };
   });
