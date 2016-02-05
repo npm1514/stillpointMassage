@@ -2,64 +2,64 @@
   <div class="left">
     <div class="profile">
       <div class="profilepic">
-        <p>Your picture goes here.</p>
-        <img src="" alt="" />
-
-
+        <img src="{{user.picture}}" alt="./../Images/noimage.jpg"/>
       </div>
       <div class="personal">
-        <h2>Name: Nick Marucci</h2>
-        <p>Age: 29</p>
+        <input class="modify" type="file" ng-model="user.picture"/> <br> <input class="modify" ng-model="user.picture" placeholder="Upload New Image">
+        <h2>Name: {{user.firstname}} {{user.lastname}} <br> <input class="modify" ng-model="user.firstname" placeholder="First Name"> <br><input class="modify" ng-model="user.lastname" placeholder="Last Name"></h2>
+        <p>Age: {{user.age}} <br> <input class="modify" ng-model="user.age" placeholder="Age"></p>
       </div>
       <div class="personalcontact">
         <h2>Contact Information</h2>
-        <p>Phone: 7164502362</p>
-        <p>Email: npm1514@gmail.com</p> <br>
+        <p>Phone: {{user.phone}} <br> <input class="modify" ng-model="user.phone" placeholder="Phone Number"></p>
+        <p>Email: {{user.email}} <br> <input class="modify" ng-model="user.email" placeholder="Email Address"></p> <br>
         <p>Address:</p>
-        <p>491 S Freedom Blvd</p>
-        <p>Provo, UT 86401</p>
+        <p>{{user.address}} <br> <input class="modify" ng-model="user.address" placeholder="Street Address"></p>
+        <p>{{user.city}} {{user.state}} {{user.zip}} <br> <input class="modify" ng-model="user.city" placeholder="City"><br><input class="modify" ng-model="user.state" placeholder="State"><br><input class="modify" ng-model="user.zip" placeholder="Zip Code"></p>
       </div>
       <div class="insurance">
         <h2>Insurance Information:</h2>
-        <p>Provider: UHC</p>
+        <p>Provider: {{user.provider}} <br> <input class="modify" ng-model="user.provider" placeholder="Insurance Provider"></p>
       </div>
       <div class="healthinfo">
         <h2>Health Information</h2>
-        <p>Conditions: Bad Neck</p>
+        <p>Conditions: {{user.healthconditions}} <br> <input class="modify" ng-model="user.healthconditions" placeholder="List any health conditions or concerns"></p>
       </div>
+      <div>
+        <button class="modifybutton">Edit Your Info</button>
+        <button ng-click="changeUser(user)" class="savebutton">Save Changes</button>
+        <button type="button" class="deletebutton">Delete User Account</button>
 
-
-
-
-
-
+      </div>
     </div>
 
   </div>
   <div class="right">
       <!-- ng-repeat="appt in schedappts" -->
     <h2>Scheduled Appointments</h2>
-    <div class="schedappts">
-      <p>Date: February 29, 2016</p>
-      <p>Time: 3:00pm</p>
-      <p>Duration: 60 minutes</p>
-      <p>Therapist: Melissa</p>
+    <div class="schedappts" ng-repeat="appt in user.schedappts">
+      <p>Date: {{appt.date}}</p>
+      <p>Time: {{appt.time}}</p>
+      <p>Duration: {{appt.duration}} minutes</p>
+      <p>Therapist: {{appt.therapist}}</p>
     </div>
-
 
       <!-- ng-repeat="appt in schedappts" -->
     <h2>Past Appointments</h2>
-    <div class="pastappts">
-      <p>Date: December 12, 2015</p>
-      <p>Time: 5:00pm</p>
-      <p>Duration: 90 minutes</p>
-      <p>Therapist: Maude</p>
+    <div class="pastappts" ng-repeat="appt in user.pastappts">
+      <p>Date: {{appt.date}}</p>
+      <p>Time: {{appt.time}}</p>
+      <p>Duration: {{appt.duration}} minutes</p>
+      <p>Therapist: {{appt.therapist}}</p>
     </div>
-
   </div>
-
 </div>
 
 <div class="button">
   <a ui-sref="calendar"><h5>Schedule an Appointment</h5></a>
+</div>
+
+<div type="button" class="deleteconfirm">
+  <h2>Are you sure you want to delete your account?</h2>
+  <button type="button" ng-click="deleteUser(user)">Yes</button><button type="button" name="button" class="donotdelete">No</button>
 </div>

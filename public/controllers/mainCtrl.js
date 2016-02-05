@@ -4,19 +4,19 @@ angular.module("stillpointMassage").controller("mainCtrl", function($scope, $loc
     $http.post('/auth', user)
     .then(function(response){
       console.info(response);
+      $http.get('/user/:id')
+      .then(function (response) {
+        console.log(response);
+
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
 
       window.location = 'http://localhost:9000/login/login.html';
     }).catch(function (err) {
       console.error(err);
     });
 
-    $http.get('/user/:id')
-    .then(function (response) {
-      console.log(response);
-
-    })
-    .catch(function (err) {
-      console.error(err);
-    });
   };
 });

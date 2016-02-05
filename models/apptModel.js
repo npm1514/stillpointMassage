@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
   var apptModel = new mongoose.Schema({
-      date: {type: Number, required:true},
-      time: {type: Number, required:true},
+      date: {type: String, required:true},
+      time: {type: String, required:true},
       therapist: {type: String, required: true},
-      apptLength:{type: Number, required: true},
-      cost:{type: Number, required: true}
+      duration:{type: Number, required: true},
+      cost:{type: Number, required: true},
+      scheduled: {type: Boolean, default:false}
   });
 
   module.exports = mongoose.model('Appt', apptModel);

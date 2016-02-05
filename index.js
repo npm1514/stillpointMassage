@@ -26,13 +26,14 @@ var express   = require('express'),
   app.use(bodyParser.urlencoded());
   app.use(express.static(__dirname + '/public'));
 
+
   app.post('/auth', passport.authenticate('local-signup'), function(req, res){
     res.send();
   });
-
+ 
   app.post('/user', userCtrl.create);
-  app.get('/user', userCtrl.read);
-  app.get('/user/:id', userCtrl.read2);
+  app.get('/user/me', userCtrl.getme);
+  app.get('/user/:id', userCtrl.read);
   app.put('/user/:id', userCtrl.update);
   app.delete('/user/:id', userCtrl.delete);
 
@@ -40,6 +41,7 @@ var express   = require('express'),
   app.get('/appt', apptCtrl.read);
   app.put('/appt/:id', apptCtrl.update);
   app.delete('/appt/:id', apptCtrl.delete);
+
 
   var mongoUri = "mongodb://localhost:27017/stillpointMassage";
   mongoose.connect(mongoUri);

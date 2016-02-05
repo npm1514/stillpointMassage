@@ -56,7 +56,7 @@ select {
   width: max-content;
 }
 
-select, input {
+select, input, button {
   padding: 5px;
   font-family: 'Avenir LT Std 45 Book';
   margin: 5px;
@@ -126,29 +126,53 @@ header {
 .profile {
   width: 80%;
   margin: auto;
+  display: inline-block;
+}
+
+.profile input {
+  width: 300px;
+  text-align: center;
 }
 
 .profilepic {
-  height: 200px;
   width: 200px;
+  height: auto;
   border: 2px solid #7a4e2b;
   margin: auto;
   background-color: #808080;
-  position: relative;
+}
 
+.personal {
+  display: inline-block;
+}
+
+.modify, .savebutton {
+  display: none;
 }
 
 .profilepic p {
-  position: absolute;
-  top: 70px;
   margin: 20px;
+
 }
 
 .profilepic img {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 100%;
+  width: 200px;
+  height: auto;
+}
+
+.deleteconfirm {
+  height: 90px;
+  width: 225px;
+  background-color: #8d8d8d;
+  border: 1px solid #7a4e2b;
+  display: none;
+  padding: 40px;
+  position: fixed;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin:auto;
 }
 
 .schedappts, .right h2, .pastappts, .profilepic, .personal, .personalcontact, .insurance, .healthinfo {
@@ -166,9 +190,9 @@ header {
 
 .calendar {
   width: 80%;
-  height: calc(100vh - 300px);
   border: 1px solid #7a4e2b;
   margin: 20px auto;
+  padding: 20px;
 }
 
 .appointment {

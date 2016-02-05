@@ -1,7 +1,11 @@
 <div class="main">
   <h2>Calendar of Appointments</h2>
-  <div class="calendar">
-
+  <div class="calendar" ng-repeat="appt in appts">
+    <h2>Date: {{appt.date}}</h2> <br>
+    <h2>Time: {{appt.time}}</h2> <br>
+    <h2>Therapist: {{appt.therapist}}</h2> <br>
+    <h2>Length of Appointment: {{appt.duration}} minutes</h2> <br>
+    <button type="button" name="button" ng-click="" ui-sref="pay">Reserve Appointment</button>
   </div>
 </div>
 

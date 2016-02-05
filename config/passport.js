@@ -27,7 +27,7 @@ module.exports = function(passport) {
                   console.log('worksgood');
                     return done(null, user);
                 } else {
-                  console.log('worksbad');
+                  alert('Invalid username or password');
                     return done(null, false);
                 }
               } else {

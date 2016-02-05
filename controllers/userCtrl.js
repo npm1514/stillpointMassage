@@ -5,27 +5,30 @@ var userModel = require('./../models/userModel.js');
       var user = new userModel(req.body);
       user.save(function(err, result){
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
         res.send(result);
       });
     },
     read: function(req, res) {
       userModel
-      .find(req.query)
+      .findById(req.params.id)
       .exec(function (err, result) {
         if (err) {
-          res.send(err);
+          return res.send(err);
+
         }
         res.send(result);
       });
     },
-    read2: function(req, res) {
+    getme: function(req,res) {
       userModel
-      .findById(req.params.id)
+      .findById(req.user._id)
+      .populate("pastappts")
+      .populate("schedappts")
       .exec(function (err, result) {
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
         res.send(result);
       });
@@ -34,18 +37,21 @@ var userModel = require('./../models/userModel.js');
       userModel
       .findByIdAndUpdate(req.params.id, req.body, function(err, result){
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
         res.send(result);
       });
     },
     delete: function(req, res){
-      userModel
-      .findByIdAndRemove(req.params.id, req.body, function(err, result){
-        if (err) {
-          res.send(err);
-        }
-        res.send(result);
-      });
+      console.log(req.user._id, req.params.id);
+      if(req.user._id == req.params.id) {
+        userModel
+        .findByIdAndRemove(req.params.id, req.body, function(err, result){
+          if (err) {
+            res.send(err);
+          }
+          res.send(result);
+        });
+      }
     }
   };

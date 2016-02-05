@@ -1,34 +1,34 @@
 angular.module("personalView").service("userService", function($http) {
-    this.getProducts = function () {
+    this.getUser = function (user) {
       return $http ({
         method: "GET",
-        url: '/api/products',
+        url: '/user/me',
       }).then(function (response) {
         return response.data;
       });
     };
-    this.postProducts = function (obj) {
-      return $http ({
-        method: "POST",
-        url: '/api/products',
-        data: obj
-      }).then(function (response) {
-        return response.data;
-      });
-    };
-    this.changeProducts = function (product) {
+    // this.postProducts = function (obj) {
+    //   return $http ({
+    //     method: "POST",
+    //     url: '/user',
+    //     data: obj
+    //   }).then(function (response) {
+    //     return response.data;
+    //   });
+    // };
+    this.changeUser = function (user) {
       return $http ({
         method: "PUT",
-        url: '/api/products/' + product._id,
-        data: product
+        url: '/user/' + user._id,
+        data: user
       }).then(function (response) {
         return response.data;
       });
     };
-    this.deleteProducts = function (id) {
+    this.deleteUser = function (user) {
       return $http ({
         method: "DELETE",
-        url: '/api/products/' + id
+        url: '/user/' + user._id,
       }).then(function (response) {
         return response.data;
       });
