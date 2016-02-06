@@ -207,10 +207,6 @@ header {
   text-align: right;
 }
 
-.addappt, .addconfirm {
-  display: none;
-}
-
 .revieworder {
   width: 200px;
   height: 25px;

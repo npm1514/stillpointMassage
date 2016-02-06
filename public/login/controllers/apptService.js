@@ -20,15 +20,16 @@ angular.module("personalView").service("apptService", function($http) {
       });
     };
 
-    // this.changeProducts = function (product) {
-    //   return $http ({
-    //     method: "PUT",
-    //     url: '/api/products/' + product._id,
-    //     data: product
-    //   }).then(function (response) {
-    //     return response.data;
-    //   });
-    // };
+    this.changeAppt = function (appt) {
+      return $http ({
+        method: "PUT",
+        url: '/appt/' + appt._id,
+        data: appt
+      }).then(function (response) {
+        return response.data;
+      });
+    };
+
     this.deleteAppt = function (appt) {
       return $http ({
         method: "DELETE",
