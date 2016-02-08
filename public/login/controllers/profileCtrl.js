@@ -4,23 +4,25 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
 
     $scope.getUser = function () {
 
-      userService.getUser().then(function(response){
-        console.log(response);
+      userService.getUser()
+      .then(function(response){
         $scope.user = response;
+        console.log(response);
       });
     };
     $scope.getUser();
 
     $scope.changeUser = function (user) {
-
-      userService.changeUser(user).then(function(response){
+      userService.changeUser(user)
+      .then(function(response){
         $('.modifybutton').show();
         $('.modify').hide();
         $('.savebutton').hide();
       });
     };
     $scope.deleteUser = function (user) {
-      userService.deleteUser(user).then(function(response){
+      userService.deleteUser(user)
+      .then(function(response){
         $scope.user = response;
         window.location = 'http://localhost:9000';
       });

@@ -20,8 +20,8 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     $scope.getUser = function () {
       userService.getUser()
       .then(function(response){
-        console.log(response);
         $scope.user = response;
+        console.log(response);
       });
     };
     $scope.getUser();
@@ -35,6 +35,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       });
     };
 
+    //change appt
     $scope.changeAppt = function (appt) {
       $scope.changeapptbutton = true;
       apptService.changeAppt(appt)
@@ -44,7 +45,8 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     };
 
     //Add appt to user object
-    $scope.changeUser = function (user) {
+    $scope.changeUser = function (user, appt) {
+      user.appts.selectedappt = appt;
       userService.changeUser(user)
       .then(function(response){
         $scope.user = response;

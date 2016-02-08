@@ -1,27 +1,42 @@
 <div class="main">
   <h2>Calendar of Appointments</h2>
+
+<!-- Add appt -->
   <button type="button" ng-show="addapptbutton" ng-click="addapptbutton = false">Add New Appointment</button>
+
   <p ng-hide="addapptbutton">Date(MM/DD/YYYY): <input ng-model="appt.date" placeholder="Appointment Date"></p>
   <p ng-hide="addapptbutton">Time(H:MMpm): <input ng-model="appt.time" placeholder="Appointment Time"></p>
   <p ng-hide="addapptbutton">Therapist: <input ng-model="appt.therapist" placeholder="Massage Therapist"></p>
   <p ng-hide="addapptbutton">Length of Appointment(minutes): <input ng-model="appt.duration" placeholder="Length of Appointment"></p>
   <p ng-hide="addapptbutton">Price($): <input ng-model="appt.cost" placeholder="Appointment Price"></p>
+
   <button ng-hide="addapptbutton" type="button" class="addconfirm" ng-click="addAppt(appt)">Confirm Add</button>
 
+<!-- Appt display including change appt inputs -->
   <div class="calendar" ng-repeat="appt in appts">
-    <h2>Date: {{appt.date}}</h2><input ng-hide="changeapptbutton" ng-model="appt.date" placeholder="Appointment Date"></p> <br>
-    <h2>Time: {{appt.time}}</h2><input ng-hide="changeapptbutton" ng-model="appt.time" placeholder="Appointment Time"></p> <br>
-    <h2>Therapist: {{appt.therapist}}</h2><input ng-hide="changeapptbutton" ng-model="appt.therapist" placeholder="Therapist"></p> <br>
-    <h2>Length of Appointment: {{appt.duration}} minutes</h2><input ng-hide="changeapptbutton" ng-model="appt.duration" placeholder="Length of Appointment"></p> <br>
-    <h2>Price: ${{appt.cost}}.00</h2><input ng-hide="changeapptbutton" ng-model="appt.cost" placeholder="Appointment Date"></p> <br>
-    <button type="button" ng-click="changeUser(user)" ui-sref="pay">Reserve Appointment</button> <br>
 
+    <h2>Date: {{appt.date}}</h2>
+    <input ng-hide="changeapptbutton" ng-model="appt.date" placeholder="Appointment Date"></p> <br>
+    <h2>Time: {{appt.time}}</h2>
+    <input ng-hide="changeapptbutton" ng-model="appt.time" placeholder="Appointment Time"></p> <br>
+    <h2>Therapist: {{appt.therapist}}</h2>
+    <input ng-hide="changeapptbutton" ng-model="appt.therapist" placeholder="Therapist"></p> <br>
+    <h2>Length of Appointment: {{appt.duration}} minutes</h2>
+    <input ng-hide="changeapptbutton" ng-model="appt.duration" placeholder="Length of Appointment"></p> <br>
+    <h2>Price: ${{appt.cost}}.00</h2>
+    <input ng-hide="changeapptbutton" ng-model="appt.cost" placeholder="Appointment Date"></p> <br>
+
+<!-- Reserve appt -->
+    <button type="button" ng-click="changeUser(user, appt)" ui-sref="pay">Reserve Appointment</button> <br>
+
+<!-- Delete appt -->
+    <button ng-show="deleteapptbutton" type="button" ng-click="deleteapptbutton = false">Delete Appointment</button>
     <div type="button" class="deleteconfirm" ng-hide="deleteapptbutton">
       <h2>Are you sure you want to delete your account?</h2>
       <button type="button" ng-click="deleteAppt(appt)">Yes</button><button type="button" ng-hide = "deleteapptbutton = true">No</button>
-    </div>
+    </div> <br>
 
-    <button ng-show="deleteapptbutton" type="button" ng-click="deleteapptbutton = false">Delete Appointment</button> <br>
+<!-- Change appt -->
     <button ng-show="changeapptbutton" type="button" ng-click="changeapptbutton = false">Change Appointment</button>
     <button ng-hide="changeapptbutton" type="button" ng-click="changeAppt(appt)">Save Changes</button>
   </div>

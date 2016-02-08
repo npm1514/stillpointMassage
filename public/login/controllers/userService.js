@@ -17,11 +17,13 @@ angular.module("personalView").service("userService", function($http) {
     //   });
     // };
     this.changeUser = function (user) {
+      console.log("1");
       return $http ({
         method: "PUT",
         url: '/user/' + user._id,
         data: user
       }).then(function (response) {
+        console.log("2");
         return response.data;
       });
     };

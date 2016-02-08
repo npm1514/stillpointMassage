@@ -36,8 +36,8 @@
   </div>
   <div class="right">
       <!-- ng-repeat="appt in schedappts" -->
-    <h2>Scheduled Appointments</h2>
-    <div class="schedappts" ng-repeat="appt in user.schedappts">
+    <h2 class="schedtitle">Scheduled Appointments</h2>
+    <div class="schedappts" ng-repeat="appt in user.appts.schedappts">
       <p>Date: {{appt.date}}</p>
       <p>Time: {{appt.time}}</p>
       <p>Duration: {{appt.duration}} minutes</p>
@@ -46,7 +46,7 @@
 
       <!-- ng-repeat="appt in schedappts" -->
     <h2>Past Appointments</h2>
-    <div class="pastappts" ng-repeat="appt in user.pastappts">
+    <div class="pastappts" ng-repeat="appt in user.appts.pastappts">
       <p>Date: {{appt.date}}</p>
       <p>Time: {{appt.time}}</p>
       <p>Duration: {{appt.duration}} minutes</p>

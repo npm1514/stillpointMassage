@@ -4,17 +4,17 @@
     <div class="appointment">
       <div class="newappt">
         <h2>Appointment Selected</h2>
-        <p>Date: February 29, 2016</p>
-        <p>Time: 3:00pm</p>
-        <p>Appointment Duration: 60 minutes</p>
-        <p>Therapist: Melissa</p>
+        <p>Date: {{user.appts.selectedappt.date}}</p>
+        <p>Time: {{user.appts.selectedappt.time}}</p>
+        <p>Appointment Duration: {{user.appts.selectedappt.duration}} minutes</p>
+        <p>Therapist: {{user.appts.selectedappt.therapist}}</p>
       </div>
 
       <div class="billing">
         <h2>Billing Information</h2>
-        <p>Sub-total: $70.00</p>
-        <p>Insurance Deduction: $40.00</p>
-        <p>Total: $30.00</p>
+        <p>Sub-total: ${{user.appts.selectedappt.cost}}.00</p>
+        <p>Insurance Deduction: ${{user.rateDiscount}}.00</p>
+        <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
       </div>
     </div>
 
@@ -24,15 +24,15 @@
     <h2>Review Payment Information</h2>
     <div class="appointment">
       <h2>Payment Information</h2>
-      <p>Name on Card: John Doe </p>
-      <p>Card Number: XXXX-XXXX-XXXX-1234</p>
-      <p>CVV Number: XXX</p>
-      <p>Expiration Date: XX-XXXX</p>
+      <p>Name on Card: {{user.payment.nameoncard}} </p>
+      <p>Card Number: {{user.payment.cardnumber}}</p>
+      <p>CVV Number: {{user.payment.cvvnumber}}</p>
+      <p>Expiration Date: {{user.payment.expiremonth}}/{{user.payment.expireyear}}</p>
     </div>
 
 
 
-    <a ui-sref="confirm">
+    <a ng-click="makePayment(user, appt)">
       <div class="revieworder">
         <h2>Submit Order</h2>
       </div>

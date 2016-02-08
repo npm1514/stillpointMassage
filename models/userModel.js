@@ -11,7 +11,7 @@ var apptModel = require('./../models/apptModel.js');
       email: {type: String},
       age: {type: Number},
       appts: {
-        selectedappts: [{type: mongoose.Schema.Types.ObjectId, ref: "Appt"}],
+        selectedappt: {type: mongoose.Schema.Types.ObjectId, ref: "Appt"},
         pastappts: [{type: mongoose.Schema.Types.ObjectId, ref: "Appt"}],
         schedappts: [{type: mongoose.Schema.Types.ObjectId, ref: "Appt"}]
       },
@@ -19,7 +19,7 @@ var apptModel = require('./../models/apptModel.js');
           nameoncard: {type:String},
           cardnumber: {type:Number, min: 16, max: 16},
           cvvnumber: {type:Number, min: 3, max: 3},
-          expiremonth: {type:String},
+          expiremonth: {type:Number, min: 1, max: 2},
           expireyear: {type:Number, min: 4, max: 4}
       },
       address: {type: String},

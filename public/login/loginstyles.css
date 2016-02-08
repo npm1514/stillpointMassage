@@ -179,6 +179,13 @@ header {
   margin-bottom: 10px;
 }
 
+.schedtitle {
+  border-bottom: 1px solid #7a4e2b;
+  width: max-content;
+  margin: auto;
+  padding: 20px;
+}
+
 .newappt, .newappt h2, .billing h2, .left h2 {
   margin-bottom: 20px;
 }
@@ -213,7 +220,7 @@ header {
   padding: 10px;
   background-color: #089e93;
   border: 1px solid #7a4e2b;
-  margin: auto;
+  margin: 20px auto;
   clear: both;
 }
 

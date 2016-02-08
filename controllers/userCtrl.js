@@ -24,8 +24,9 @@ var userModel = require('./../models/userModel.js');
     getme: function(req,res) {
       userModel
       .findById(req.user._id)
-      .populate("pastappts")
-      .populate("schedappts")
+      .populate("appts.pastappts")
+      .populate("appts.schedappts")
+      .populate("appts.selectedappt")
       .exec(function (err, result) {
         if (err) {
           return res.send(err);

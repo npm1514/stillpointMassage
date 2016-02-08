@@ -4,11 +4,22 @@ angular.module("personalView").controller("reviewCtrl", function($scope, userSer
   $scope.getUser = function () {
 
     userService.getUser().then(function(response){
-      console.log(response);
       $scope.user = response;
+      console.log(response);
     });
   };
   $scope.getUser();
+
+  $scope.makePayment = function(user) {
+    var select = user.appts.selectedappt;
+    select.scheduled = true;
+    user.appts.schedappts.push(select);
+    user.appts.selectedappt = {};
+    userService.changeUser(user)
+    .then(function(response){
+      console.log(response);
+    });
+  };
     // $scope.products = {};
     // $scope.getProducts = function () {
     //   mainService.getProducts().then(function(response){
