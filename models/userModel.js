@@ -4,11 +4,10 @@ var mongoose  = require('mongoose'),
 var apptModel = require('./../models/apptModel.js');
 
   var userSchema = new mongoose.Schema({
-      username: {type: String, required:true, unique:true},
+      username: {type: String, required:true},
       password: {type: String, required: true },
       firstname: {type: String},
       lastname: {type: String},
-      email: {type: String},
       age: {type: Number},
       appts: {
         selectedappt: {type: mongoose.Schema.Types.ObjectId, ref: "Appt"},

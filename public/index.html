@@ -44,8 +44,10 @@
       <div class="loginbox" ng-controller="mainCtrl">
 
         <form  ng-submit="login(user)">
-          Username<input type="text" placeholder="Enter Username" name="username" ng-model="user.username">
-          Password<input type="password" placeholder="Enter Password" ng-model="user.password" name="password">
+          Email <br>
+          <input type="email" placeholder="Enter Valid Email" name="email" ng-model="user.username">
+          Password <br>
+          <input type="password" placeholder="Enter Password" ng-model="user.password" name="password">
           <button>Login/Register</button>
           <a href="" class="exitlogin">
             <h3>x</h3>
