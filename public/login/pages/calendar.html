@@ -13,7 +13,7 @@
   <button ng-hide="addapptbutton" type="button" class="addconfirm" ng-click="addAppt(appt)">Confirm Add</button>
 
 <!-- Appt display including change appt inputs -->
-  <div class="calendar" ng-repeat="appt in appts">
+  <div class="calendar" ng-repeat="appt in appts | filter: appt.scheduled = false">
 
     <h2>Date: {{appt.date}}</h2>
     <input ng-hide="changeapptbutton" ng-model="appt.date" placeholder="Appointment Date"></p> <br>

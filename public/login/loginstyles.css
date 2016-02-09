@@ -15,7 +15,7 @@ p {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   color: #fff;
 }
 
@@ -146,10 +146,6 @@ header {
   display: inline-block;
 }
 
-.modify, .savebutton {
-  display: none;
-}
-
 .profilepic p {
   margin: 20px;
 
@@ -165,7 +161,6 @@ header {
   width: 225px;
   background-color: #8d8d8d;
   border: 1px solid #7a4e2b;
-  display: none;
   padding: 40px;
   position: fixed;
   top:0px;
@@ -179,11 +174,15 @@ header {
   margin-bottom: 10px;
 }
 
-.schedtitle {
+.schedappts, .pastappts {
   border-bottom: 1px solid #7a4e2b;
+  padding-bottom: 10px;
+}
+
+.schedtitle {
   width: max-content;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .newappt, .newappt h2, .billing h2, .left h2 {
@@ -233,8 +232,6 @@ header {
   margin: auto;
 }
 
-
-
 .appointment p {
   text-align: right;
 }
@@ -263,18 +260,23 @@ header {
 
 .congrats {
   height: max-content;
-  background-color: #7a4e2b;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #7a4e2b;
+  margin-bottom: 10px;
 }
 
 .congrats h1 {
-  color: #fff;
-  margin: 10px;
+  color: #089e93;
 }
 
 .congrats h2 {
   color: #3c3c3c;
-  margin: 10px;
+  margin: 15px;
+
+}
+
+.confirmnum {
+  margin-bottom: 10px;
 }
 
 .button {

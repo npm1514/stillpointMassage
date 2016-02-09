@@ -7,23 +7,13 @@ angular.module("personalView").service("userService", function($http) {
         return response.data;
       });
     };
-    // this.postProducts = function (obj) {
-    //   return $http ({
-    //     method: "POST",
-    //     url: '/user',
-    //     data: obj
-    //   }).then(function (response) {
-    //     return response.data;
-    //   });
-    // };
     this.changeUser = function (user) {
-      console.log("1");
       return $http ({
         method: "PUT",
         url: '/user/' + user._id,
         data: user
       }).then(function (response) {
-        console.log("2");
+        console.log(response);
         return response.data;
       });
     };

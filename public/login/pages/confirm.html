@@ -1,48 +1,27 @@
 <div class="main">
   <div class="congrats">
     <h1>Your order has been completed.</h1>
-      <h2>See your confirmation number below. We will see you at your scheduled appointment.</h2>
+    <h2>See your confirmation number below. We will see you at your scheduled appointment.</h2>
   </div>
-
-  <div class="left">
-    <h2>Review Appointment</h2>
-    <div class="appointment">
-      <div class="newappt">
-        <h2>Appointment Selected</h2>
-        <p>Date: February 29, 2016</p>
-        <p>Time: 3:00pm</p>
-        <p>Appointment Duration: 60 minutes</p>
-        <p>Therapist: Melissa</p>
-      </div>
-
-      <div class="billing">
-        <h2>Billing Information</h2>
-        <p>Sub-total: $70.00</p>
-        <p>Insurance Deduction: $40.00</p>
-        <p>Total: $30.00</p>
-      </div>
+  <div class="appointment">
+    <div class="newappt">
+      <h2>Scheduled Appointment</h2>
+      <p>Date: {{user.appts.selectedappt.date}}</p>
+      <p>Time: {{user.appts.selectedappt.time}}</p>
+      <p>Appointment Duration: {{user.appts.selectedappt.duration}} minutes</p>
+      <p>Therapist: {{user.appts.selectedappt.therapist}}</p>
     </div>
 
-
-  </div>
-  <div class="right">
-    <h2>Review Payment Information</h2>
-    <div class="appointment">
-      <h2>Payment Information</h2>
-      <p>Name on Card: John Doe </p>
-      <p>Card Number: XXXX-XXXX-XXXX-1234</p>
-      <p>CVV Number: XXX</p>
-      <p>Expiration Date: XX-XXXX</p>
-    </div>
-
-      <div class="confirmnum">
-        <h2>Confirmation Number: 123456879</h2>
-      </div>
-
+    <div class="billing">
+      <h2>Billing Information</h2>
+      <p>Sub-total: ${{user.appts.selectedappt.cost}}.00</p>
+      <p>Insurance Deduction: ${{user.rateDiscount}}.00</p>
+      <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
     </div>
   </div>
-
-
+  <div class="confirmnum">
+    <h2>Confirmation Number: <br> {{user.appts.selectedappt._id}}</h2>
+  </div>
 </div>
 
 <div class="button">

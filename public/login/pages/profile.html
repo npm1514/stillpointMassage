@@ -5,30 +5,44 @@
         <img ng-src="{{user.picture}}" alt="./../Images/noimage.jpg"/>
       </div>
       <div class="personal">
-        <input class="modify" type="file" ng-model="user.picture"/> <br> <input class="modify" ng-model="user.picture" placeholder="Upload New Image">
-        <h2>Name: {{user.firstname}} {{user.lastname}} <br> <input class="modify" ng-model="user.firstname" placeholder="First Name"> <br><input class="modify" ng-model="user.lastname" placeholder="Last Name"></h2>
-        <p>Age: {{user.age}} <br> <input class="modify" ng-model="user.age" placeholder="Age"></p>
+        <input ng-hide="edituserbutton" type="file" ng-model="user.picture"/> <br>
+        <input ng-hide="edituserbutton" ng-model="user.picture" placeholder="Upload New Image">
+        <h2>Name: {{user.firstname}} {{user.lastname}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.firstname" placeholder="First Name"> <br>
+        <input ng-hide="edituserbutton" ng-model="user.lastname" placeholder="Last Name"></h2>
+        <p>Age: {{user.age}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.age" placeholder="Age"></p>
       </div>
       <div class="personalcontact">
         <h2>Contact Information</h2>
-        <p>Phone: {{user.phone}} <br> <input class="modify" ng-model="user.phone" placeholder="Phone Number"></p>
-        <p>Email: {{user.email}} <br> <input class="modify" ng-model="user.email" placeholder="Email Address"></p> <br>
+        <p>Phone: {{user.phone}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.phone" placeholder="Phone Number"></p>
+        <p>Email: {{user.email}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.email" placeholder="Email Address"></p> <br>
         <p>Address:</p>
-        <p>{{user.address}} <br> <input class="modify" ng-model="user.address" placeholder="Street Address"></p>
-        <p>{{user.city}} {{user.state}} {{user.zip}} <br> <input class="modify" ng-model="user.city" placeholder="City"><br><input class="modify" ng-model="user.state" placeholder="State"><br><input class="modify" ng-model="user.zip" placeholder="Zip Code"></p>
+        <p>{{user.address}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.address" placeholder="Street Address"></p>
+        <p>{{user.city}} {{user.state}} {{user.zip}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.city" placeholder="City"><br>
+        <input ng-hide="edituserbutton" ng-model="user.state" placeholder="State"><br>
+        <input ng-hide="edituserbutton" ng-model="user.zip" placeholder="Zip Code"></p>
       </div>
       <div class="insurance">
         <h2>Insurance Information:</h2>
-        <p>Provider: {{user.provider}} <br> <input class="modify" ng-model="user.provider" placeholder="Insurance Provider"></p>
+        <p>Provider: {{user.provider}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.provider" placeholder="Insurance Provider"></p>
       </div>
       <div class="healthinfo">
         <h2>Health Information</h2>
-        <p>Conditions: {{user.healthconditions}} <br> <input class="modify" ng-model="user.healthconditions" placeholder="List any health conditions or concerns"></p>
+        <p>Conditions: {{user.healthconditions}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.healthconditions" placeholder="List any health conditions or concerns"></p>
+        <p>Rate Discount: ${{user.rateDiscount}}.00 <br>
+        <input ng-hide="edituserbutton" ng-model="user.rateDiscount" placeholder="Rate Discount"></p>
       </div>
       <div>
-        <button class="modifybutton">Edit Your Info</button>
-        <button ng-click="changeUser(user)" class="savebutton">Save Changes</button>
-        <button type="button" class="deletebutton">Delete User Account</button>
+        <button ng-show="edituserbutton" ng-click="edituserbutton = false" class="modifybutton">Edit Your Info</button>
+        <button ng-hide="edituserbutton" ng-click="changeUser(user)" class="savebutton">Save Changes</button>
+        <button ng-click="deleteuserbutton = false" type="button" class="deletebutton">Delete User Account</button>
 
       </div>
     </div>
@@ -36,15 +50,25 @@
   </div>
   <div class="right">
       <!-- ng-repeat="appt in schedappts" -->
-    <h2 class="schedtitle">Scheduled Appointments</h2>
-    <div class="schedappts" ng-repeat="appt in user.appts.schedappts">
-      <p>Date: {{appt.date}}</p>
-      <p>Time: {{appt.time}}</p>
-      <p>Duration: {{appt.duration}} minutes</p>
-      <p>Therapist: {{appt.therapist}}</p>
+    <div class="schedtitle">
+      <h2>Scheduled Appointments</h2>
+      <div class="schedappts" ng-repeat="appt in user.appts.schedappts">
+        <p>Date: {{appt.date}}</p>
+        <p>Time: {{appt.time}}</p>
+        <p>Duration: {{appt.duration}} minutes</p>
+        <p>Therapist: {{appt.therapist}}</p>
+        <button ng-click="cancelapptbutton = false" type="button" >Cancel Appointment</button>
+        <div ng-hide="cancelapptbutton" type="button" class="deleteconfirm">
+          <h2>Are you sure you want to cancel your appointment?</h2>
+          <button type="button" ng-click="removeAppt(user, appt)">Yes</button>
+          <button ng-click="cancelapptbutton = true" type="button">No</button>
+        </div>
+      </div>
     </div>
 
+
       <!-- ng-repeat="appt in schedappts" -->
+
     <h2>Past Appointments</h2>
     <div class="pastappts" ng-repeat="appt in user.appts.pastappts">
       <p>Date: {{appt.date}}</p>
@@ -59,7 +83,8 @@
   <a ui-sref="calendar"><h5>Schedule an Appointment</h5></a>
 </div>
 
-<div type="button" class="deleteconfirm">
+<div ng-hide="deleteuserbutton" type="button" class="deleteconfirm">
   <h2>Are you sure you want to delete your account?</h2>
-  <button type="button" ng-click="deleteUser(user)">Yes</button><button type="button" name="button" class="donotdelete">No</button>
+  <button type="button" ng-click="deleteUser(user)">Yes</button>
+  <button  ng-click="deleteuserbutton = true" type="button">No</button>
 </div>

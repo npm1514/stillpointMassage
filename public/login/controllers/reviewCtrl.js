@@ -11,38 +11,13 @@ angular.module("personalView").controller("reviewCtrl", function($scope, userSer
   $scope.getUser();
 
   $scope.makePayment = function(user) {
-    var select = user.appts.selectedappt;
-    select.scheduled = true;
-    user.appts.schedappts.push(select);
-    user.appts.selectedappt = {};
+    user.appts.selectedappt.scheduled = true;
+    user.appts.schedappts.push(user.appts.selectedappt);
+    apptService.changeAppt(user.appts.selectedappt)
+    .then(function(response){
+    });
     userService.changeUser(user)
     .then(function(response){
-      console.log(response);
     });
   };
-    // $scope.products = {};
-    // $scope.getProducts = function () {
-    //   mainService.getProducts().then(function(response){
-    //     $scope.products = response;
-    //   });
-    // };
-    // $scope.getProducts();
-    //
-    // $scope.postProducts = function (name, description, price) {
-    //   var obj = {name: name, description: description, price: price};
-    //   console.log(obj);
-    //   mainService.postProducts(obj).then(function(response){
-    //     $scope.products = response;
-    //   });
-    // };
-    // $scope.changeProducts = function (product) {
-    //   mainService.changeProducts(product).then(function(response){
-    //     $scope.products = response;
-    //   });
-    // };
-    // $scope.deleteProducts = function (product) {
-    //   mainService.deleteProducts(product._id).then(function(response){
-    //     $scope.products = response;
-    //   });
-    // };
-  });
+});

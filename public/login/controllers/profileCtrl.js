@@ -1,6 +1,9 @@
-angular.module("personalView").controller("profileCtrl", function($scope, userService) {
+angular.module("personalView").controller("profileCtrl", function($scope, userService, apptService) {
 
     $scope.user = {};
+    $scope.edituserbutton = true;
+    $scope.deleteuserbutton = true;
+    $scope.cancelapptbutton = true;
 
     $scope.getUser = function () {
 
@@ -13,13 +16,31 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
     $scope.getUser();
 
     $scope.changeUser = function (user) {
+      $scope.edituserbutton = true;
       userService.changeUser(user)
       .then(function(response){
-        $('.modifybutton').show();
-        $('.modify').hide();
-        $('.savebutton').hide();
       });
     };
+//remove and change scheduled Boolean
+    $scope.removeAppt = function (user, appt) {
+      $scope.cancelapptbutton = true;
+      appt.scheduled = false;
+      console.log(appt);
+      apptService.changeAppt(appt)
+      .then(function(response){
+        console.log(response);
+      });
+      for (var i = 0; i < user.appts.schedappts.length; i++) {
+        if (appt._id == user.appts.schedappts[i]._id) {
+          user.appts.schedappts.splice(i, 1);
+        }
+      }
+      userService.changeUser(user)
+      .then(function(response){
+        console.log(response);
+      });
+    };
+
     $scope.deleteUser = function (user) {
       userService.deleteUser(user)
       .then(function(response){
@@ -27,18 +48,4 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
         window.location = 'http://localhost:9000';
       });
     };
-
-    $('.modifybutton').on('click', function(){
-      $('.modifybutton').hide();
-      $('.modify').show();
-      $('.savebutton').show();
-    });
-
-    $('.deletebutton').on('click', function(){
-      $('.deleteconfirm').show();
-    });
-
-    $('.donotdelete').on('click', function(){
-      $('.deleteconfirm').hide();
-    });
   });

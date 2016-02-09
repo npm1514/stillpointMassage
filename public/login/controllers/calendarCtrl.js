@@ -1,7 +1,7 @@
 angular.module("personalView").controller("calendarCtrl", function($scope, apptService, userService) {
 
     //create arrays to use in html
-    $scope.appts = {};
+    $scope.appts = [];
     $scope.user = {};
     $scope.deleteapptbutton = true;
     $scope.changeapptbutton = true;
@@ -11,6 +11,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     $scope.getAppts = function () {
       apptService.getAppts()
       .then(function(response){
+        console.log(response);
         $scope.appts = response;
       });
     };
