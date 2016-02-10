@@ -298,6 +298,11 @@ input {
   height: 150px;
   width: 150px;
   border-radius: 50%;
+}
+
+.calendar {
+  max-width: 800px;
+  margin: auto;
 
 }
 

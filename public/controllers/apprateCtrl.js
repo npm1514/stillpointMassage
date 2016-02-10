@@ -1,5 +1,16 @@
 angular.module("stillpointMassage").controller("apprateCtrl", function($scope) {
-  $('.login').on('click', function(){
-    $('.loginbox').show();
+  $(document).ready(function() {
+
+    $('.login').on('click', function(){
+      $('.loginbox').show();
+    });
+
+    $('#calendar').fullCalendar({
+      //put options and callbacks here
+    });
+
+
+
+
   });
 });
