@@ -3,9 +3,25 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     //create arrays to use in html
     $scope.appts = [];
     $scope.user = {};
-    $scope.deleteapptbutton = true;
-    $scope.changeapptbutton = true;
-    $scope.addapptbutton = true;
+
+    $scope.deleteapptbutton = false;
+    $scope.changeapptbutton = false;
+    $scope.addapptbutton = false;
+    $scope.reserveapptbutton = true;
+
+    $scope.confirmdeleteapptbutton = false;
+    $scope.confirmchangeapptbutton = false;
+    $scope.confirmaddapptbutton = false;
+
+    //get user info
+    $scope.getUser = function () {
+      userService.getUser()
+      .then(function(response){
+        $scope.user = response;
+        $scope.getAppts();
+      });
+    };
+    $scope.getUser();
 
     //get appt info
     $scope.getAppts = function () {
@@ -13,23 +29,20 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       .then(function(response){
         console.log(response);
         $scope.appts = response;
+        console.log($scope.user.admin);
+        if ($scope.user.admin === true) {
+          $scope.deleteapptbutton = true;
+          $scope.changeapptbutton = true;
+          $scope.addapptbutton = true;
+          $scope.reserveapptbutton = false;
+        }
       });
     };
-    $scope.getAppts();
 
-    //get user info
-    $scope.getUser = function () {
-      userService.getUser()
-      .then(function(response){
-        $scope.user = response;
-        console.log(response);
-      });
-    };
-    $scope.getUser();
 
     //add appt to appts array
     $scope.addAppt = function (appt) {
-      $scope.addapptbutton = true;
+      $scope.confirmaddapptbutton = false;
       apptService.addAppt(appt)
       .then(function(response){
         $scope.appts.push(response);
@@ -38,7 +51,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
 
     //change appt
     $scope.changeAppt = function (appt) {
-      $scope.changeapptbutton = true;
+      $scope.confirmchangeapptbutton = false;
       apptService.changeAppt(appt)
       .then(function(response){
         $scope.getAppts();
@@ -60,6 +73,16 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       .then(function(response){
         $scope.getAppts();
       });
+    };
+
+    $scope.ngadd = function(){
+      $scope.confirmaddapptbutton = true;
+      $scope.addapptbutton = false;
+    };
+
+    $scope.ngchange = function(){
+      $scope.confirmchangeapptbutton = true;
+      $scope.changeapptbutton = false;
     };
 
   });

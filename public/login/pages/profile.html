@@ -10,10 +10,11 @@
         <h2>Name: {{user.firstname}} {{user.lastname}} <br>
         <input ng-hide="edituserbutton" ng-model="user.firstname" placeholder="First Name"> <br>
         <input ng-hide="edituserbutton" ng-model="user.lastname" placeholder="Last Name"></h2>
-        <p>Age: {{user.age}} <br>
+
+        <p ng-show="adminright">Age: {{user.age}} <br>
         <input ng-hide="edituserbutton" ng-model="user.age" placeholder="Age"></p>
       </div>
-      <div class="personalcontact">
+      <div class="personalcontact" ng-show="adminright">
         <h2>Contact Information</h2>
         <p>Phone: {{user.phone}} <br>
         <input ng-hide="edituserbutton" ng-model="user.phone" placeholder="Phone Number"></p>
@@ -27,19 +28,19 @@
         <input ng-hide="edituserbutton" ng-model="user.state" placeholder="State"><br>
         <input ng-hide="edituserbutton" ng-model="user.zip" placeholder="Zip Code"></p>
       </div>
-      <div class="insurance">
+      <div class="insurance" ng-show="adminright">
         <h2>Insurance Information:</h2>
         <p>Provider: {{user.provider}} <br>
         <input ng-hide="edituserbutton" ng-model="user.provider" placeholder="Insurance Provider"></p>
       </div>
-      <div class="healthinfo">
+      <div class="healthinfo" ng-show="adminright">
         <h2>Health Information</h2>
         <p>Conditions: {{user.healthconditions}} <br>
         <input ng-hide="edituserbutton" ng-model="user.healthconditions" placeholder="List any health conditions or concerns"></p>
         <p>Rate Discount: ${{user.rateDiscount}}.00 <br>
         <input ng-hide="edituserbutton" ng-model="user.rateDiscount" placeholder="Rate Discount"></p>
       </div>
-      <div>
+      <div ng-show="adminright">
         <button ng-show="edituserbutton" ng-click="edituserbutton = false" class="modifybutton">Edit Your Info</button>
         <button ng-hide="edituserbutton" ng-click="changeUser(user)" class="savebutton">Save Changes</button>
         <button ng-click="deleteuserbutton = false" type="button" class="deletebutton">Delete User Account</button>
@@ -50,7 +51,7 @@
   </div>
   <div class="right">
       <!-- ng-repeat="appt in schedappts" -->
-    <div class="schedtitle">
+    <div class="schedtitle" ng-show="adminright">
       <h2>Scheduled Appointments</h2>
       <div class="schedappts" ng-repeat="appt in user.appts.schedappts">
         <p>Date: {{appt.date}}</p>
@@ -66,20 +67,28 @@
       </div>
     </div>
 
-
-      <!-- ng-repeat="appt in schedappts" -->
-
-    <h2>Past Appointments</h2>
-    <div class="pastappts" ng-repeat="appt in user.appts.pastappts">
-      <p>Date: {{appt.date}}</p>
-      <p>Time: {{appt.time}}</p>
-      <p>Duration: {{appt.duration}} minutes</p>
-      <p>Therapist: {{appt.therapist}}</p>
+    <div class="schedtitle" ng-show="adminright">
+      <h2>Past Appointments</h2>
+      <div class="pastappts" ng-repeat="appt in user.appts.pastappts">
+        <p>Date: {{appt.date}}</p>
+        <p>Time: {{appt.time}}</p>
+        <p>Duration: {{appt.duration}} minutes</p>
+        <p>Therapist: {{appt.therapist}}</p>
+      </div>
     </div>
+
+    <div ng-hide="adminright">
+      <a ui-sref="calendar"><h5>Edit Appointments</h5></a>
+    </div>
+    <br>
+    <div ng-hide="adminright">
+      <a ui-sref="calendar"><h5>Edit Users</h5></a>
+    </div>
+
   </div>
 </div>
 
-<div class="button">
+<div class="button" ng-show="adminright">
   <a ui-sref="calendar"><h5>Schedule an Appointment</h5></a>
 </div>
 

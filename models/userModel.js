@@ -4,10 +4,10 @@ var mongoose  = require('mongoose'),
 var apptModel = require('./../models/apptModel.js');
 
   var userSchema = new mongoose.Schema({
-      username: {type: String, required:true},
       password: {type: String, required: true },
       firstname: {type: String},
       lastname: {type: String},
+      email: {type: String, required: true},
       age: {type: Number},
       appts: {
         selectedappt: {type: mongoose.Schema.Types.ObjectId, ref: "Appt"},
@@ -29,6 +29,7 @@ var apptModel = require('./../models/apptModel.js');
       picture: {type: String},
       healthconditions: {type: String},
       provider: {type: String},
+      admin: {type: Boolean, default:false},
       rateDiscount: {type: Number}
   });
 

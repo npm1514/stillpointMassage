@@ -4,13 +4,16 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
     $scope.edituserbutton = true;
     $scope.deleteuserbutton = true;
     $scope.cancelapptbutton = true;
+    $scope.adminright = true;
 
     $scope.getUser = function () {
 
       userService.getUser()
       .then(function(response){
         $scope.user = response;
-        console.log(response);
+        if ($scope.user.admin === true) {
+          $scope.adminright = false;
+        }
       });
     };
     $scope.getUser();

@@ -14,25 +14,25 @@ module.exports = function(passport) {
         });
     });
     passport.use('local-signup', new LocalStrategy({
-        usernameField : 'username',
+        usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true
     },
-    function(req, username, password, done) {
+    function(req, email, password, done) {
         process.nextTick(function() {
-          User.findOne({'username': username}, function(err, user) {
+          User.findOne({'email': email}, function(err, user) {
               if (err) return done(err);
               if (user) {
                 if (user.validPassword(password)) {
                   console.log('worksgood');
                     return done(null, user);
                 } else {
-                  alert('Invalid username or password');
+                  alert('Invalid email or password');
                     return done(null, false);
                 }
               } else {
                   var newUser = new User();
-                  newUser.username    = username;
+                  newUser.email    = email;
                   newUser.password = newUser.generateHash(password);
                   newUser.save(function(err) {
                       if (err) throw err;
