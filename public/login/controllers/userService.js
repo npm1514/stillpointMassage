@@ -2,8 +2,16 @@ angular.module("personalView").service("userService", function($http) {
     this.getUser = function (user) {
       return $http ({
         method: "GET",
-        url: '/user/me',
+        url: '/user/me'
       }).then(function (response) {
+        return response.data;
+      });
+    };
+    this.getUsers = function () {
+      return $http ({
+        method: "GET",
+        url: '/user'
+      }).then(function (response){
         return response.data;
       });
     };

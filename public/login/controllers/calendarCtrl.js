@@ -29,7 +29,6 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       .then(function(response){
         console.log(response);
         $scope.appts = response;
-        console.log($scope.user.admin);
         if ($scope.user.admin === true) {
           $scope.deleteapptbutton = true;
           $scope.changeapptbutton = true;

@@ -32,6 +32,7 @@ var express   = require('express'),
   });
 
   app.post('/user', userCtrl.create);
+  app.get('/user', userCtrl.getall);
   app.get('/user/me', userCtrl.getme);
   app.get('/user/:id', userCtrl.read);
   app.put('/user/:id', userCtrl.update);

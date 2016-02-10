@@ -11,8 +11,8 @@
         <input ng-hide="edituserbutton" ng-model="user.firstname" placeholder="First Name"> <br>
         <input ng-hide="edituserbutton" ng-model="user.lastname" placeholder="Last Name"></h2>
 
-        <p ng-show="adminright">Age: {{user.age}} <br>
-        <input ng-hide="edituserbutton" ng-model="user.age" placeholder="Age"></p>
+        <p ng-show="adminright">Birth Date: {{user.birthdate}} <br>
+        <input ng-hide="edituserbutton" ng-model="user.birthdate" placeholder="Birth Date (MM/DD/YYYY)"></p>
       </div>
       <div class="personalcontact" ng-show="adminright">
         <h2>Contact Information</h2>
@@ -37,8 +37,6 @@
         <h2>Health Information</h2>
         <p>Conditions: {{user.healthconditions}} <br>
         <input ng-hide="edituserbutton" ng-model="user.healthconditions" placeholder="List any health conditions or concerns"></p>
-        <p>Rate Discount: ${{user.rateDiscount}}.00 <br>
-        <input ng-hide="edituserbutton" ng-model="user.rateDiscount" placeholder="Rate Discount"></p>
       </div>
       <div ng-show="adminright">
         <button ng-show="edituserbutton" ng-click="edituserbutton = false" class="modifybutton">Edit Your Info</button>
@@ -82,7 +80,7 @@
     </div>
     <br>
     <div ng-hide="adminright">
-      <a ui-sref="calendar"><h5>Edit Users</h5></a>
+      <a ui-sref="editusers"><h5>Edit Users</h5></a>
     </div>
 
   </div>

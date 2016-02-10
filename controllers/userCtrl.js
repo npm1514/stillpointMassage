@@ -21,6 +21,16 @@ var userModel = require('./../models/userModel.js');
         res.send(result);
       });
     },
+    getall: function(req, res) {
+      userModel
+      .find(req.query)
+      .exec(function (err, result) {
+        if (err) {
+          res.send(err);
+        }
+        res.send(result);
+      });
+    },
     getme: function(req,res) {
       userModel
       .findById(req.user._id)
@@ -45,7 +55,6 @@ var userModel = require('./../models/userModel.js');
     },
     delete: function(req, res){
       console.log(req.user._id, req.params.id);
-      if(req.user._id == req.params.id) {
         userModel
         .findByIdAndRemove(req.params.id, req.body, function(err, result){
           if (err) {
@@ -53,6 +62,5 @@ var userModel = require('./../models/userModel.js');
           }
           res.send(result);
         });
-      }
     }
   };

@@ -8,7 +8,7 @@ var apptModel = require('./../models/apptModel.js');
       firstname: {type: String},
       lastname: {type: String},
       email: {type: String, required: true},
-      age: {type: Number},
+      birthdate: {type: String},
       appts: {
         selectedappt: {type: mongoose.Schema.Types.ObjectId, ref: "Appt"},
         pastappts: [{type: mongoose.Schema.Types.ObjectId, ref: "Appt"}],

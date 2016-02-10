@@ -1,0 +1,49 @@
+<div class="main" ng-show="adminright">
+  <h2>List of Users</h2>
+
+  <div class="calendar" ng-repeat="user in users | orderBy: user.firstname" >
+
+    <h2>Email: {{user.email}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.email" placeholder="Appointment Date"></h2>
+
+    <h2>Name: {{user.firstname}} {{user.lastname}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.firstname" placeholder="First Name">
+    <input ng-show="confirmchangeuserbutton" ng-model="user.lastname" placeholder="Last Name"></h2>
+
+    <h2>Phone Number: {{user.phone}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.phone" placeholder="Phone Number"></h2>
+
+    <h2>Address: {{user.address}} {{user.city}} {{user.state}} {{user.zip}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.address" placeholder="address">
+    <input ng-show="confirmchangeuserbutton" ng-model="user.city" placeholder="city">
+    <input ng-show="confirmchangeuserbutton" ng-model="user.state" placeholder="state">
+    <input ng-show="confirmchangeuserbutton" ng-model="user.zip" placeholder="zip"></h2>
+
+    <h2>Insurance Provider: {{user.provider}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.provider" placeholder="Insurance Provider"></h2>
+
+    <h2>Health Conditions: ${{user.healthconditions}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.healthconditions" placeholder="Health Conditions"></h2>
+
+    <h2>Rate Discount: ${{user.rateDiscount}}
+    <input ng-show="confirmchangeuserbutton" ng-model="user.rateDiscount" placeholder="Rate Discount"></h2>
+
+<!-- Change user -->
+    <button ng-show="changeuserbutton" type="button" ng-click="ngchange()">Change User Info</button>
+    <button ng-show="confirmchangeuserbutton" type="button" ng-click="changeUser(user)">Save Changes</button>
+
+<!-- Delete user -->
+    <button ng-show="deleteuserbutton" type="button" ng-click="confirmdeleteuserbutton = true">Delete User</button>
+    <div type="button" class="deleteconfirm" ng-show="confirmdeleteuserbutton">
+      <h2>Are you sure you want to delete this user account?</h2>
+      <button type="button" ng-click="deleteUser(user)">Yes</button>
+      <button type="button" ng-click="confirmdeleteuserbutton = false">No</button>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="button" ng-show="adminright">
+  <a ui-sref="profile"><h5>Personal Profile</h5></a>
+</div>

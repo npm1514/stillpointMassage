@@ -21,6 +21,11 @@ angular.module("personalView", ['ui.router'])
         controller: 'reviewCtrl',
         templateUrl: './pages/review.html'
       })
+      .state('editusers', {
+        url: '/editusers',
+        controller: 'editusersCtrl',
+        templateUrl: './pages/editusers.html'
+      })
       .state('confirm', {
         url: '/confirm',
         controller: 'confirmCtrl',
