@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
       duration:{type: Number, required: true},
       cost:{type: Number, required: true},
       scheduled: {type: Boolean, default:false}
+
   });
 
   module.exports = mongoose.model('Appt', apptModel);
