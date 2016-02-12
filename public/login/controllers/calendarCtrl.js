@@ -5,13 +5,13 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     $scope.user = {};
 
     $scope.deleteapptbutton = false;
-    $scope.changeapptbutton = false;
-    $scope.addapptbutton = false;
     $scope.reserveapptbutton = true;
+    $scope.addapptbutton = false;
+    $scope.changeapptbutton = false;
 
+    $scope.confirmaddapptbutton = false;
     $scope.confirmdeleteapptbutton = false;
     $scope.confirmchangeapptbutton = false;
-    $scope.confirmaddapptbutton = false;
 
     //get user info
     $scope.getUser = function () {
@@ -41,7 +41,6 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
 
     //add appt to appts array
     $scope.addAppt = function (appt) {
-      $scope.confirmaddapptbutton = false;
       apptService.addAppt(appt)
       .then(function(response){
         $scope.appts.push(response);
@@ -72,16 +71,6 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       .then(function(response){
         $scope.getAppts();
       });
-    };
-
-    $scope.ngadd = function(){
-      $scope.confirmaddapptbutton = true;
-      $scope.addapptbutton = false;
-    };
-
-    $scope.ngchange = function(){
-      $scope.confirmchangeapptbutton = true;
-      $scope.changeapptbutton = false;
     };
 
   });

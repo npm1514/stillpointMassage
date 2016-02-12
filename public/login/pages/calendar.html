@@ -2,11 +2,11 @@
   <h2>Calendar of Appointments</h2>
 
 <!-- Add appt -->
-  <button type="button" ng-show="addapptbutton" ng-click="ngadd()">Add New Appointment</button>
+  <button type="button" ng-show="addapptbutton" ng-click="confirmaddapptbutton=true;addapptbutton=false">Add New Appointment</button>
 
   <p ng-show="confirmaddapptbutton">Date(YYYY-MM-DD):
     <input ng-model="appt.date" placeholder="Appointment Date"></p>
-  <p ng-show="confirmaddapptbutton">Time(HHMM Military Time):
+  <p ng-show="confirmaddapptbutton">Time(HH:MM Military Time):
     <input ng-model="appt.time" placeholder="Appointment Time"></p>
   <p ng-show="confirmaddapptbutton">Therapist:
     <input ng-model="appt.therapist" placeholder="Massage Therapist"></p>
@@ -15,7 +15,7 @@
   <p ng-show="confirmaddapptbutton">Price($):
     <input ng-model="appt.cost" placeholder="Appointment Price"></p>
 
-  <button ng-show="confirmaddapptbutton" type="button" ng-click="addAppt(appt)">Confirm Add</button>
+  <button ng-show="confirmaddapptbutton" type="button" ng-click="addAppt(appt);confirmaddapptbutton=false;addapptbutton=true">Confirm Add</button>
 
 <!-- Appt display including change appt inputs -->
   <div class="calendar" ng-repeat="appt in appts | filter: appt.scheduled = false">
@@ -31,8 +31,10 @@
     <h2>Price: ${{appt.cost}}.00</h2>
     <input ng-show="confirmchangeapptbutton" ng-model="appt.cost" placeholder="Appointment Date"> <br>
 
-<!-- Reserve appt -->
-    <button ng-show="reserveapptbutton" type="button" ng-click="changeUser(user, appt)" ui-sref="pay">Reserve Appointment</button> <br>
+    <!-- Change appt -->
+    <button ng-show="changeapptbutton" type="button" ng-click="confirmchangeapptbutton=true;changeapptbutton=false">Change Appointment</button>
+    <button ng-show="confirmchangeapptbutton" type="button" ng-click="changeAppt(appt);confirmchangeapptbutton=false;changeapptbutton=true">Save Changes</button> <br>
+
 
 <!-- Delete appt -->
     <button ng-show="deleteapptbutton" type="button" ng-click="confirmdeleteapptbutton = true">Delete Appointment</button>
@@ -41,9 +43,10 @@
       <button type="button" ng-click="deleteAppt(appt)">Yes</button><button type="button" ng-click="confirmdeleteapptbutton = false">No</button>
     </div> <br>
 
-<!-- Change appt -->
-    <button ng-show="changeapptbutton" type="button" ng-click="ngchange()">Change Appointment</button>
-    <button ng-show="confirmchangeapptbutton" type="button" ng-click="changeAppt(appt)">Save Changes</button>
+<!-- Reserve appt -->
+    <button ng-show="reserveapptbutton" type="button" ng-click="changeUser(user, appt)" ui-sref="pay">Reserve Appointment</button> <br>
+
+
   </div>
 </div>
 

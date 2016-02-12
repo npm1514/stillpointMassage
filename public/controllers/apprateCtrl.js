@@ -1,31 +1,43 @@
 angular.module("stillpointMassage").controller("apprateCtrl", function($scope, apptService) {
-
   var appts = [];
   $scope.getAppts = function () {
     apptService.getAppts()
     .then(function(response){
       for (var i = 0; i < response.length; i++) {
         if (response[i].scheduled === false) {
-          appts.push({
-            _id: response[i]._id,
-            start: moment(response[i].date + "T" + response[i].time)._d,
-            end: moment(response[i].date + "T" + response[i].time).add(response[i].duration, 'minutes')._d,
-            title: response[i].therapist + "-" + response[i].duration + " min",
-            therapist: response[i].therapist,
-            duration: response[i].duration
-          });
+              appts.push({
+                _id: response[i]._id,
+                start: moment(response[i].date + "T" + response[i].time)._d,
+                end: moment(response[i].date + "T" + response[i].time).add(response[i].duration, 'minutes')._d,
+                title: response[i].therapist + "-" + response[i].duration + " min",
+                therapist: response[i].therapist,
+                duration: response[i].duration,
+                color: '#000'
+              });
+        }
+      }
+      for (var j = 0; j < appts.length; j++) {
+        if (appts[j].therapist === "Jackie") {
+          appts[j].color='pink';
+        } else if (appts[j].therapist === "Rebecca") {
+          appts[j].color='red';
+        } else if (appts[j].therapist === "Melissa") {
+          appts[j].color='purple';
+        } else if (appts[j].therapist === "Israel") {
+          appts[j].color='orange';
+        } else if (appts[j].therapist === "Phyllis") {
+          appts[j].color='yellow';
+        } else if (appts[j].therapist === "Sue") {
+          appts[j].color='green';
+        } else if (appts[j].therapist === "Heather") {
+          appts[j].color='blue';
+        } else if (appts[j].therapist === "Maude") {
+          appts[j].color='#8d8d8d';
+        } else {
+          appts[j].color='#000';
         }
       }
       console.log(appts);
-    });
-  };
-  $scope.getAppts();
-
-    $('.login').on('click', function(){
-      $('.loginbox').show();
-    });
-
-    $(document).ready(function() {
       $('#calendar').fullCalendar({
 
         header: {
@@ -41,7 +53,21 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
         allDaySlot: false,
         hiddenDays: [0],
         editable: false,
-        events: appts
+        events: appts,
+        eventClick: function(calEvent, jsEvent, view) {
+
+
+        }
       });
     });
+  };
+  $scope.getAppts();
+
+
+  //put funciton here
+  $scope.selectAppt = function(){};
+
+  $('.login').on('click', function(){
+    $('.loginbox').show();
+  });
 });

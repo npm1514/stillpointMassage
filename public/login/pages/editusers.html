@@ -4,33 +4,33 @@
   <div class="calendar" ng-repeat="user in users | orderBy: user.firstname" >
 
     <h2>Email: {{user.email}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.email" placeholder="Appointment Date"></h2>
+    <input ng-show="editing" ng-model="user.email" placeholder="Appointment Date"></h2>
 
     <h2>Name: {{user.firstname}} {{user.lastname}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.firstname" placeholder="First Name">
-    <input ng-show="confirmchangeuserbutton" ng-model="user.lastname" placeholder="Last Name"></h2>
+    <input ng-show="editing" ng-model="user.firstname" placeholder="First Name">
+    <input ng-show="editing" ng-model="user.lastname" placeholder="Last Name"></h2>
 
     <h2>Phone Number: {{user.phone}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.phone" placeholder="Phone Number"></h2>
+    <input ng-show="editing" ng-model="user.phone" placeholder="Phone Number"></h2>
 
     <h2>Address: {{user.address}} {{user.city}} {{user.state}} {{user.zip}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.address" placeholder="address">
-    <input ng-show="confirmchangeuserbutton" ng-model="user.city" placeholder="city">
-    <input ng-show="confirmchangeuserbutton" ng-model="user.state" placeholder="state">
-    <input ng-show="confirmchangeuserbutton" ng-model="user.zip" placeholder="zip"></h2>
+    <input ng-show="editing" ng-model="user.address" placeholder="address">
+    <input ng-show="editing" ng-model="user.city" placeholder="city">
+    <input ng-show="editing" ng-model="user.state" placeholder="state">
+    <input ng-show="editing" ng-model="user.zip" placeholder="zip"></h2>
 
     <h2>Insurance Provider: {{user.provider}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.provider" placeholder="Insurance Provider"></h2>
+    <input ng-show="editing" ng-model="user.provider" placeholder="Insurance Provider"></h2>
 
-    <h2>Health Conditions: ${{user.healthconditions}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.healthconditions" placeholder="Health Conditions"></h2>
+    <h2>Health Conditions: {{user.healthconditions}}
+    <input ng-show="editing" ng-model="user.healthconditions" placeholder="Health Conditions"></h2>
 
-    <h2>Rate Discount: ${{user.rateDiscount}}
-    <input ng-show="confirmchangeuserbutton" ng-model="user.rateDiscount" placeholder="Rate Discount"></h2>
+    <h2>Rate Discount: ${{user.rateDiscount}}.00
+    <input ng-show="editing" ng-model="user.rateDiscount" placeholder="Rate Discount"></h2>
 
 <!-- Change user -->
-    <button ng-show="changeuserbutton" type="button" ng-click="ngchange()">Change User Info</button>
-    <button ng-show="confirmchangeuserbutton" type="button" ng-click="changeUser(user)">Save Changes</button>
+    <button ng-hide="editing" type="button" ng-click="editing = true">Change User Info</button>
+    <button ng-show="editing" type="button" ng-click="changeUser(user);editing=false">Save Changes</button>
 
 <!-- Delete user -->
     <button ng-show="deleteuserbutton" type="button" ng-click="confirmdeleteuserbutton = true">Delete User</button>

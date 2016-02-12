@@ -27,7 +27,7 @@ module.exports = function(passport) {
                   console.log('worksgood');
                     return done(null, user);
                 } else {
-                  alert('Invalid email or password');
+                  console.log('Invalid email or password');
                     return done(null, false);
                 }
               } else {

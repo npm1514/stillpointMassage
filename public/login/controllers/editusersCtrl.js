@@ -48,9 +48,4 @@ angular.module("personalView").controller("editusersCtrl", function($scope, appt
     });
   };
 
-  $scope.ngchange = function() {
-    $scope.confirmchangeuserbutton = true;
-    $scope.changeuserbutton = false;
-  };
-
 });
