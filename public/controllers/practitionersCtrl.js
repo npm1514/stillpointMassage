@@ -1,4 +1,9 @@
-angular.module("stillpointMassage").controller("practitionersCtrl", function($scope) {
+angular.module("stillpointMassage").controller("practitionersCtrl", function($scope, userService) {
+
+  $scope.loggedin = false;
+  $scope.user = {};
+
+
   $(document).ready(function(){
     $('.about1').on('click', function(){
       $('.description1').slideToggle();

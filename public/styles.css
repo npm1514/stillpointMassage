@@ -219,22 +219,6 @@ i:hover {
   padding: 20px;
 }
 
-.loginbox {
-  border: 1px solid #8d8d8d;
-  border-radius: 5px;
-  width: 350px;
-  height: 175px;
-  margin:auto;
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  font-family: 'Avenir LT Std 45 Book'
-}
-
 form {
   margin: 20px;
 }
@@ -242,18 +226,8 @@ form {
 input {
   width: 250px;
   margin: 5px;
-  font-family: 'Avenir LT Std 45 Book'
-}
-
-.exitlogin {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  padding: 0 5px;
-}
-
-.exitlogin h3 {
-  color: red;
+  font-family: 'Avenir LT Std 45 Book';
+  font-size:20px;
 }
 
 .practiceinfo h3 {
@@ -326,6 +300,23 @@ footer {
 
 footer h6 {
   margin-left: 10%;
+}
+
+.login {
+  width: 375px;
+}
+
+.login h2 {
+  padding: 5px;
+}
+
+.login input {
+  text-align: center;
+}
+
+.login button {
+  font-size: 20px;
+  width: 255px;
 }
 
 ui-view {

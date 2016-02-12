@@ -43,7 +43,11 @@
             <a ui-sref="practitioners"><h5>Practitioners</h5></a>
             <a ui-sref="apprate"><h5>Appointments/Rates</h5></a>
             <a ui-sref="contact"><h5>Contact Us</h5></a>
-            <a class="login" href=""><h5>Login/Register</h5></a>
+            <a ng-hide="loggedin" ui-sref="login"><h5>Login/Register</h5></a>
+            <a ng-show="loggedin" href="login/login.html"><h5>Profile</h5></a>
+            <a ng-show="loggedin" ui-sref="login"><h5>Log Out</h5></a>
+
+
         </div>
       </header>
 
@@ -52,33 +56,19 @@
       <footer>
         <h6>Content copyright 2016. www.stillpointmassagecenter.com  All rights reserved.</h6>
       </footer>
-      <div class="loginbox" ng-controller="mainCtrl">
-
-        <form  ng-submit="login(user)">
-          Email <br>
-          <input type="email" placeholder="Enter Valid Email" name="email" ng-model="user.email">
-          Password <br>
-          <input type="password" placeholder="Enter Password" ng-model="user.password" name="password">
-          <button>Login/Register</button>
-          <a href="" class="exitlogin">
-            <h3>x</h3>
-          </a>
-        </form>
-
-      </div>
 
       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
     	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
-
-
-
       <script src="./app.js"></script>
+
+      <script src="./controllers/apprateCtrl.js"></script>
+      <script src="./controllers/apptService.js"></script>
+      <script src="./controllers/loginCtrl.js"></script>
       <script src="./controllers/mainCtrl.js"></script>
       <script src="./controllers/practiceCtrl.js"></script>
-      <script src="./controllers/apprateCtrl.js"></script>
       <script src="./controllers/practitionersCtrl.js"></script>
-      <script src="./controllers/apptService.js"></script>
+      <script src="./controllers/userService.js"></script>
 
     </body>
   <html>

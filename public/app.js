@@ -32,6 +32,11 @@ angular.module("stillpointMassage", ['ui.router'])
         url: '/testimonials',
         templateUrl: './pages/testimonials.html'
       })
+      .state('login', {
+        url: '/login',
+        controller: 'loginCtrl',
+        templateUrl: './pages/login.html'
+      })
       .state('contact', {
         url: '/contact',
         templateUrl: './pages/contact.html'
@@ -42,12 +47,6 @@ angular.module("stillpointMassage", ['ui.router'])
 
   $(document).ready(function(){
 
-    $('.login').on('click', function(){
-      $('.loginbox').show();
-    });
-    $('.exitlogin').on('click', function(){
-      $('.loginbox').hide();
-    });
     $('i').on('click', function(){
       $('.nav').slideToggle();
     });
