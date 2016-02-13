@@ -1,5 +1,6 @@
 angular.module("stillpointMassage").controller("mainCtrl", function($scope, $location, userService) {
 
+  $scope.user = {};
   $scope.getUser = function () {
 
     userService.getUser()

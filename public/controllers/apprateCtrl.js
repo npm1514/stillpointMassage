@@ -1,4 +1,4 @@
-angular.module("stillpointMassage").controller("apprateCtrl", function($scope, apptService) {
+angular.module("stillpointMassage").controller("apprateCtrl", function($scope, apptService, userService) {
   var appts = [];
   $scope.getAppts = function () {
     apptService.getAppts()
@@ -56,23 +56,39 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
         events: appts,
         eventClick: function(calEvent, jsEvent, view) {
           $scope.selectAppt(calEvent);
-
         }
       });
     });
   };
   $scope.getAppts();
 
+  $scope.user = {};
+  $scope.getUser = function () {
 
-  //put funciton here
+    userService.getUser()
+    .then(function(response){
+      $scope.user = response;
+      if ($scope.user) {
+        $scope.loggedin = true;
+      }
+    });
+  };
+  $scope.getUser();
+
+
   $scope.selectAppt = function(event){
-    // if() {
-    //   user.appts.selectedAppt = event;
-    //   window.location = 'http://localhost:9000/login/confirm.html';
-    // } else {
-    //   $scope.appt = event;
-    //   window.location = 'http://localhost:9000/#/login.html';
-    // }
+    if($scope.user) {
+      $scope.user.appts.selectedappt = event;
+      userService.changeUser($scope.user)
+      .then(function(response){
+        console.log(response);
+        // window.location = 'http://localhost:9000/login/login.html#/review';
+      });
+
+    } else {
+      $scope.appt = event;
+      window.location = 'http://localhost:9000/#/login.html';
+    }
 
   };
 

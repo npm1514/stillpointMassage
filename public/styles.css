@@ -132,18 +132,18 @@ i:hover {
 
 .homebanner {
   height: 500px;
-  background-image: url('https://images.unsplash.com/photo-1448216118999-7a3f98dc37f2?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+  background-image: url('./Images/photo-1448216118999-7a3f98dc37f2.jpg');
 }
 
 .aboutbanner {
   height: 300px;
-  background-image: url('http://www.lifeofpix.com/wp-content/uploads/2015/06/Life-of-Pix-free-stock-photos-back-flower-window-santalla.jpg');
+  background-image: url('./Images/Life-of-Pix-free-stock-photos-back-flower-window-santalla.jpg');
   background-position: center;
 }
 
 .appratebanner {
   height: 300px;
-  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/AYSVGBFCHG.jpg');
+  background-image: url('./Images/AYSVGBFCHG.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -151,7 +151,7 @@ i:hover {
 
 .practicebanner {
   height: 300px;
-  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/XDRW3QDNN7.jpg');
+  background-image: url('./Images/XDRW3QDNN7.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -159,7 +159,7 @@ i:hover {
 
 .contactbanner {
   height: 300px;
-  background-image: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/S4541GKUE4.jpg');
+  background-image: url('./Images/S4541GKUE4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -168,7 +168,7 @@ i:hover {
 
 .practitionersbanner {
   height: 300px;
-  background-image: url('https://images.unsplash.com/photo-1446569971295-057569541991?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+  background-image: url('./Images/photo-1446569971295-057569541991.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -176,7 +176,7 @@ i:hover {
 
 .servicesbanner {
   height: 300px;
-  background-image: url('https://images.unsplash.com/34/rcaNUh3pQ9GD8w7Iy8qE__DSC0940.jpg?crop=entropy&dpr=0.75&fit=crop&fm=jpg&h=1275&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575');
+  background-image: url('./Images/rcaNUh3pQ9GD8w7Iy8qE__DSC0940.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -184,7 +184,7 @@ i:hover {
 
 .testimonialsbanner {
   height: 300px;
-  background-image: url('https://images.unsplash.com/photo-1427096105551-15e2512fd2dc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=b7a34944fa430c8ddfb37d360d99f862');
+  background-image: url('./Images/photo-1427096105551-15e2512fd2dc.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
