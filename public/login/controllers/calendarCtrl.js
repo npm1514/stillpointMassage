@@ -4,14 +4,9 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
     $scope.appts = [];
     $scope.user = {};
 
-    $scope.deleteapptbutton = false;
-    $scope.reserveapptbutton = true;
-    $scope.addapptbutton = false;
-    $scope.changeapptbutton = false;
-
-    $scope.confirmaddapptbutton = false;
-    $scope.confirmdeleteapptbutton = false;
-    $scope.confirmchangeapptbutton = false;
+    $scope.admin = false;
+    $scope.adding = false;
+    $scope.editing = false;
 
     //get user info
     $scope.getUser = function () {
@@ -30,10 +25,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
         console.log(response);
         $scope.appts = response;
         if ($scope.user.admin === true) {
-          $scope.deleteapptbutton = true;
-          $scope.changeapptbutton = true;
-          $scope.addapptbutton = true;
-          $scope.reserveapptbutton = false;
+          $scope.admin = true;
         }
       });
     };
@@ -44,6 +36,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.addAppt(appt)
       .then(function(response){
         $scope.appts.push(response);
+        $scope.getCalendar();
       });
     };
 
@@ -53,6 +46,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.changeAppt(appt)
       .then(function(response){
         $scope.getAppts();
+        $scope.getCalendar();
       });
     };
 
@@ -70,7 +64,82 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.deleteAppt(appt)
       .then(function(response){
         $scope.getAppts();
+        $scope.getCalendar();
       });
     };
 
-  });
+  var calendar = [];
+  $scope.getCalendar = function () {
+    apptService.getAppts()
+    .then(function(response){
+      for (var i = 0; i < response.length; i++) {
+        if (response[i].scheduled === false) {
+              calendar.push({
+                _id: response[i]._id,
+                start: moment(response[i].date + "T" + response[i].time)._d,
+                end: moment(response[i].date + "T" + response[i].time).add(response[i].duration, 'minutes')._d,
+                title: response[i].therapist + "-" + response[i].duration + " min",
+                therapist: response[i].therapist,
+                duration: response[i].duration,
+                color: '#000'
+              });
+        }
+      }
+      for (var j = 0; j < calendar.length; j++) {
+        if (calendar[j].therapist === "Jackie") {
+          calendar[j].color='pink';
+        } else if (calendar[j].therapist === "Rebecca") {
+          calendar[j].color='red';
+        } else if (calendar[j].therapist === "Melissa") {
+          calendar[j].color='purple';
+        } else if (calendar[j].therapist === "Israel") {
+          calendar[j].color='orange';
+        } else if (calendar[j].therapist === "Phyllis") {
+          calendar[j].color='yellow';
+        } else if (calendar[j].therapist === "Sue") {
+          calendar[j].color='green';
+        } else if (calendar[j].therapist === "Heather") {
+          calendar[j].color='blue';
+        } else if (calendar[j].therapist === "Maude") {
+          calendar[j].color='#8d8d8d';
+        } else {
+          calendar[j].color='#000';
+        }
+      }
+      console.log(calendar);
+      $('#calendar').fullCalendar({
+
+        header: {
+          left: 'prev, next today',
+          center: 'title',
+          right: 'month, agendaWeek, agendaDay'
+        },
+        defaultDate: moment(),
+        defaultView: 'agendaWeek',
+        minTime: '09:00:00',
+        maxTime: '19:00:00',
+        height: 'auto',
+        allDaySlot: false,
+        hiddenDays: [0],
+        editable: false,
+        events: calendar,
+        eventClick: function(calEvent, jsEvent, view) {
+          $scope.selectAppt(calEvent);
+        }
+      });
+    });
+  };
+  $scope.getCalendar();
+
+  $scope.selectAppt = function(event){
+    console.log(event);
+    $scope.user.appts.selectedappt = event;
+    delete $scope.user.appts.selectedappt.source;
+    userService.changeUser($scope.user)
+    .then(function(response){
+      console.log(response);
+      window.location = 'http://localhost:9000/login/login.html#/review';
+    });
+  };
+
+});

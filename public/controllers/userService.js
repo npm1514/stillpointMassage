@@ -16,6 +16,7 @@ angular.module("stillpointMassage").service("userService", function($http) {
       });
     };
     this.changeUser = function (user) {
+      console.log(user);
       return $http ({
         method: "PUT",
         url: '/user/' + user._id,
