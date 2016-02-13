@@ -25,6 +25,15 @@ angular.module("stillpointMassage").service("userService", function($http) {
         return response.data;
       });
     };
+    this.logout = function () {
+      return $http ({
+        method: 'GET',
+        url: '/user/logout'
+      })
+      .then(function(response){
+        return response;
+      });
+    };
     this.deleteUser = function (user) {
       return $http ({
         method: "DELETE",

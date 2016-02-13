@@ -27,7 +27,7 @@
 
     </head>
 
-    <body>
+    <body ng-controller="mainCtrl">
       <header>
         <div class="testimonials">
           <h6>Want to hear what our clients have to say about us? <a ui-sref="testimonials">See their testimonials here.</a></h6>
@@ -45,7 +45,7 @@
             <a ui-sref="contact"><h5>Contact Us</h5></a>
             <a ng-hide="loggedin" ui-sref="login"><h5>Login/Register</h5></a>
             <a ng-show="loggedin" href="login/login.html"><h5>Profile</h5></a>
-            <a ng-show="loggedin" ui-sref="login"><h5>Log Out</h5></a>
+            <a ng-show="loggedin" href="" ng-click="logout(); loggedin=false"><h5>Log Out</h5></a>
 
 
         </div>

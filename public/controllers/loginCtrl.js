@@ -1,6 +1,19 @@
 angular.module("stillpointMassage").controller("loginCtrl", function($scope, $http, userService, apptService) {
 
 
+
+  $scope.getUser = function () {
+
+    userService.getUser()
+    .then(function(response){
+      $scope.user = response;
+      if ($scope.user) {
+        $scope.loggedin = true;
+      }
+    });
+  };
+  $scope.getUser();
+
   $scope.login = function(user) {
     $http.post('/auth', user)
     .then(function(response){

@@ -32,6 +32,9 @@ var userModel = require('./../models/userModel.js');
       });
     },
     getme: function(req,res) {
+      if(!req.user){
+        return res.send();
+      }
       userModel
       .findById(req.user._id)
       .populate("appts.pastappts")
@@ -52,6 +55,11 @@ var userModel = require('./../models/userModel.js');
         }
         res.send(result);
       });
+    },
+    logout: function(req,res) {
+      req.logout();
+      console.log(req + " has been logged out");
+      res.send();
     },
     delete: function(req, res){
       console.log(req.user._id, req.params.id);

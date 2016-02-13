@@ -55,7 +55,7 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
         editable: false,
         events: appts,
         eventClick: function(calEvent, jsEvent, view) {
-
+          $scope.selectAppt(calEvent);
 
         }
       });
@@ -65,7 +65,16 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
 
 
   //put funciton here
-  $scope.selectAppt = function(){};
+  $scope.selectAppt = function(event){
+    // if() {
+    //   user.appts.selectedAppt = event;
+    //   window.location = 'http://localhost:9000/login/confirm.html';
+    // } else {
+    //   $scope.appt = event;
+    //   window.location = 'http://localhost:9000/#/login.html';
+    // }
+
+  };
 
   $('.login').on('click', function(){
     $('.loginbox').show();
