@@ -54,6 +54,6 @@ var express   = require('express'),
     console.log("Connected to mongoDB");
   });
 
-  app.listen(9000, function(){
-    console.log("listening to 9000");
+  app.listen(80, function(){
+    console.log("listening to 80");
   });
