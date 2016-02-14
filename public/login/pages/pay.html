@@ -2,20 +2,20 @@
   <div class="left">
     <h2>Billing and Selected Appointment</h2>
     <div class="appointment">
-      
+
       <div class="newappt">
         <h2>Appointment Selected</h2>
-        <p>Date: {{user.appts.selectedappt.date}}</p>
-        <p>Time: {{user.appts.selectedappt.time}}</p>
-        <p>Appointment Duration: {{user.appts.selectedappt.duration}} minutes</p>
-        <p>Therapist: {{user.appts.selectedappt.therapist}}</p>
+        <p>Date: {{scheduled.date}}</p>
+        <p>Time: {{scheduled.time}}</p>
+        <p>Appointment Duration: {{scheduled.duration}} minutes</p>
+        <p>Therapist: {{scheduled.therapist}}</p>
       </div>
 
       <div class="billing">
         <h2>Billing Information</h2>
-        <p>Sub-total: ${{user.appts.selectedappt.cost}}.00</p>
+        <p>Sub-total: ${{scheduled.cost}}.00</p>
         <p>Insurance Deduction: ${{user.rateDiscount}}.00</p>
-        <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
+        <p>Total: ${{scheduled.cost - user.rateDiscount}}.00</p>
       </div>
 
     </div>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <a ng-click="changeUser(user)" ui-sref="review">
+    <a ng-click="changeUser(user)" ui-sref="reviewcard">
       <div class="revieworder">
         <h2>Review Your Order</h2>
       </div>

@@ -9,7 +9,6 @@ angular.module("stillpointMassage").service("apptService", function($http) {
       });
     };
 
-
     this.addAppt = function (appt) {
       return $http ({
         method: "POST",

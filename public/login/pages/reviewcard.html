@@ -4,17 +4,17 @@
     <div class="appointment">
       <div class="newappt">
         <h2>Appointment Selected</h2>
-        <p>Date: {{user.appts.selectedappt.date}}</p>
-        <p>Time: {{user.appts.selectedappt.time}}</p>
-        <p>Appointment Duration: {{user.appts.selectedappt.duration}} minutes</p>
-        <p>Therapist: {{user.appts.selectedappt.therapist}}</p>
+        <p>Date: {{scheduled.date}}</p>
+        <p>Time: {{scheduled.time}}</p>
+        <p>Appointment Duration: {{scheduled.duration}} minutes</p>
+        <p>Therapist: {{scheduled.therapist}}</p>
       </div>
 
       <div class="billing">
         <h2>Billing Information</h2>
-        <p>Sub-total: ${{user.appts.selectedappt.cost}}.00</p>
+        <p>Sub-total: ${{scheduled.cost}}.00</p>
         <p>Insurance Deduction: ${{user.rateDiscount}}.00</p>
-        <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
+        <p>Total: ${{scheduled.cost - user.rateDiscount}}.00</p>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
 
 
 
-    <a ng-click="makePayment(user)" ui-sref="confirm">
+    <a ng-click="makePayment(user)" ui-sref="confirmcard">
       <div class="revieworder">
         <h2>Submit Order</h2>
       </div>

@@ -10,6 +10,17 @@ angular.module("personalView").service("apptService", function($http) {
     };
 
 
+    this.getAppt = function (appt) {
+      return $http ({
+        method: "GET",
+        url: '/appt/' + appt._id,
+        data: appt
+      }).then(function (response) {
+        return response.data;
+      });
+    };
+
+
     this.addAppt = function (appt) {
       return $http ({
         method: "POST",

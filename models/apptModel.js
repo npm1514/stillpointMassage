@@ -6,8 +6,8 @@ var mongoose = require('mongoose');
       therapist: {type: String, required: true},
       duration:{type: Number, required: true},
       cost:{type: Number, required: true},
-      scheduled: {type: Boolean, default:false}
-
+      scheduled: {type: Boolean, default:false},
+      paid: {type: Boolean, default: false}
   });
 
   module.exports = mongoose.model('Appt', apptModel);

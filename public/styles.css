@@ -374,6 +374,10 @@ ui-view {
   z-index: 100;
 }
 
+#calendar {
+  font-family: 'Avenir LT Std 45 Book';
+}
+
 @media only screen and (max-width: 1030px) {
   .nav {
     padding-left: 0;

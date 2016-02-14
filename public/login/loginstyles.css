@@ -200,6 +200,23 @@ header {
   padding: 20px;
 }
 
+.adminpopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: max-content;
+  width: 300px;
+  margin: auto;
+  background-color: #8d8d8d;
+  border: 1px solid #7a4e2b;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 100;
+  opacity: .9;
+}
+
 .fc-event-container a {
   cursor: pointer;
 }
@@ -301,6 +318,10 @@ header {
 .button a:hover {
   border-bottom: 3px solid #089e93;
   color: #7a4e2b;
+}
+
+#calendar {
+  font-family: 'Avenir LT Std 45 Book';
 }
 
 footer {

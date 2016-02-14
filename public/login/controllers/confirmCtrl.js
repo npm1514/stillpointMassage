@@ -8,6 +8,8 @@ angular.module("personalView").controller("confirmCtrl", function($scope, apptSe
     .then(function(response){
       console.log(response);
       $scope.user = response;
+      $scope.scheduled = $scope.user.appts.schedappts[$scope.user.appts.schedappts.length - 1];
+      console.log($scope.scheduled);
     });
   };
   $scope.getUser();

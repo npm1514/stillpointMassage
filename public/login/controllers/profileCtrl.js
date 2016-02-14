@@ -28,6 +28,7 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
     $scope.removeAppt = function (user, appt) {
       $scope.cancelapptbutton = true;
       appt.scheduled = false;
+      appt.paid = false;
       console.log(appt);
       apptService.changeAppt(appt)
       .then(function(response){

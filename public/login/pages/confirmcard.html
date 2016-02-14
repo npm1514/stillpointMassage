@@ -1,6 +1,6 @@
 <div class="main">
   <div class="congrats">
-    <h1>Your order has been completed.</h1>
+    <h1>Your payment has been received</h1>
     <h2>See your confirmation number below. We will see you at your scheduled appointment.</h2>
   </div>
   <div class="appointment">
@@ -20,17 +20,8 @@
     </div>
   </div>
   <div class="confirmnum">
-    <h2>Confirmation Number: <br> {{scheduled._id}}</h2>
+    <h2>Confirmation Number: <br> something else per stripe</h2>
   </div>
-  <div class="payhere">
-    <h2>If you would like to pay for your appointment now, click here.</h2>
-  </div>
-
-  <a ng-click="makePayment(user)" ui-sref="pay">
-    <div class="revieworder">
-      <h2>Pay Here</h2>
-    </div>
-  </a>
 
 </div>
 

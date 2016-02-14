@@ -20,6 +20,16 @@ var apptModel = require('./../models/apptModel.js');
         res.send(result);
       });
     },
+    getOne: function(req, res) {
+      apptModel
+      .findById(req.params.id)
+      .exec(function (err, result) {
+        if (err) {
+          return res.send(err);
+        }
+        res.send(result);
+      });
+    },
     update: function(req, res){
       apptModel
       .findByIdAndUpdate(req.params.id, req.body, function(err, result){

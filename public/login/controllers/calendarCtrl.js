@@ -1,12 +1,14 @@
-angular.module("personalView").controller("calendarCtrl", function($scope, apptService, userService) {
+angular.module("personalView").controller("calendarCtrl", function($scope, apptService, userService, $state) {
 
     //create arrays to use in html
     $scope.appts = [];
     $scope.user = {};
+    $scope.appt = {};
 
     $scope.admin = false;
     $scope.adding = false;
     $scope.editing = false;
+    $scope.adminchange = false;
 
     //get user info
     $scope.getUser = function () {
@@ -36,7 +38,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.addAppt(appt)
       .then(function(response){
         $scope.appts.push(response);
-        $scope.getCalendar();
+        location.reload();
       });
     };
 
@@ -46,7 +48,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.changeAppt(appt)
       .then(function(response){
         $scope.getAppts();
-        $scope.getCalendar();
+        location.reload();
       });
     };
 
@@ -64,7 +66,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
       apptService.deleteAppt(appt)
       .then(function(response){
         $scope.getAppts();
-        $scope.getCalendar();
+        location.reload();
       });
     };
 
@@ -95,7 +97,7 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
         } else if (calendar[j].therapist === "Israel") {
           calendar[j].color='orange';
         } else if (calendar[j].therapist === "Phyllis") {
-          calendar[j].color='yellow';
+          calendar[j].color='brown';
         } else if (calendar[j].therapist === "Sue") {
           calendar[j].color='green';
         } else if (calendar[j].therapist === "Heather") {
@@ -132,14 +134,25 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
   $scope.getCalendar();
 
   $scope.selectAppt = function(event){
-    console.log(event);
-    $scope.user.appts.selectedappt = event;
-    delete $scope.user.appts.selectedappt.source;
-    userService.changeUser($scope.user)
-    .then(function(response){
-      console.log(response);
-      window.location = 'http://localhost:9000/login/login.html#/review';
-    });
+    delete event.source;
+    if ($scope.user.admin === true) {
+      console.log(event);
+      apptService.getAppt(event)
+      .then(function(response){
+        $scope.appt = response;
+        console.log($scope.appt);
+        $scope.adminchange = true;
+      });
+    }
+    else {
+      console.log(event);
+      $scope.user.appts.selectedappt = event;
+      userService.changeUser($scope.user)
+      .then(function(response){
+        console.log(response);
+        $state.go("review");
+      });
+    }
   };
 
 });

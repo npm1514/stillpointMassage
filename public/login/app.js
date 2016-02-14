@@ -31,6 +31,11 @@ angular.module("personalView", ['ui.router'])
         controller: 'editusersCtrl',
         templateUrl: './pages/editusers.html'
       })
+      .state('confirmcard', {
+        url: '/confirmcard',
+        controller: 'confirmcardCtrl',
+        templateUrl: './pages/confirmcard.html'
+      })
       .state('confirm', {
         url: '/confirm',
         controller: 'confirmCtrl',

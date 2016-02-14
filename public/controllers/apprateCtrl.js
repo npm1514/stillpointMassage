@@ -1,4 +1,4 @@
-angular.module("stillpointMassage").controller("apprateCtrl", function($scope, apptService, userService) {
+angular.module("stillpointMassage").controller("apprateCtrl", function($scope, apptService, userService, $state) {
   var appts = [];
   $scope.getAppts = function () {
     apptService.getAppts()
@@ -26,7 +26,7 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
         } else if (appts[j].therapist === "Israel") {
           appts[j].color='orange';
         } else if (appts[j].therapist === "Phyllis") {
-          appts[j].color='yellow';
+          appts[j].color='brown';
         } else if (appts[j].therapist === "Sue") {
           appts[j].color='green';
         } else if (appts[j].therapist === "Heather") {
@@ -87,7 +87,7 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
     } else {
       userService.nouser = event;
       console.log(userService.nouser);
-        window.location = 'http://localhost:9000/#/login';
+        $state.go("login");
     }
 
   };

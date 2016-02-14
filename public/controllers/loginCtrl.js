@@ -23,6 +23,7 @@ angular.module("stillpointMassage").controller("loginCtrl", function($scope, $ht
 
 
   $scope.login = function(user) {
+    console.log(user);
     $http.post('/auth', user)
     .then(function(response){
       console.info(response);

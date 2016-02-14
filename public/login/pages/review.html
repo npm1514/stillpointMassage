@@ -1,5 +1,4 @@
 <div class="main">
-  <div class="left">
     <h2>Review Appointment</h2>
     <div class="appointment">
       <div class="newappt">
@@ -17,20 +16,6 @@
         <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
       </div>
     </div>
-
-
-  </div>
-  <div class="right">
-    <h2>Review Payment Information</h2>
-    <div class="appointment">
-      <h2>Payment Information</h2>
-      <p>Name on Card: {{user.payment.nameoncard}} </p>
-      <p>Card Number: {{user.payment.cardnumber}}</p>
-      <p>CVV Number: {{user.payment.cvvnumber}}</p>
-      <p>Expiration Date: {{user.payment.expiremonth}}/{{user.payment.expireyear}}</p>
-    </div>
-
-
 
     <a ng-click="makePayment(user)" ui-sref="confirm">
       <div class="revieworder">

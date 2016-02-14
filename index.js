@@ -41,6 +41,7 @@ var express   = require('express'),
 
   app.post('/appt', apptCtrl.create);
   app.get('/appt', apptCtrl.read);
+  app.get('/appt/:id', apptCtrl.getOne);
   app.put('/appt/:id', apptCtrl.update);
   app.delete('/appt/:id', apptCtrl.delete);
 
