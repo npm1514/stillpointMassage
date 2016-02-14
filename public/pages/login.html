@@ -1,25 +1,25 @@
 <div class="pagetext">
   <div class="login">
-    <form>
+    <form ng-submit="login(user)">
       <h2>Email:</h2>
       <input type="email" placeholder="Enter Valid Email" name="email" ng-model="user.email" required="true">
       <h2>Password:</h2>
       <input type="password" placeholder="Enter Password" ng-model="user.password" name="password" required="true">
       <div ng-show="register">
         <h2>First Name:</h2>
-        <input type="text" placeholder="First Name" ng-model="user.firstname" required="true">
+        <input type="text" placeholder="First Name" ng-model="user.firstname">
         <h2>Last Name:</h2>
-        <input type="text" placeholder="Last Name" ng-model="user.lastname" required="true">
+        <input type="text" placeholder="Last Name" ng-model="user.lastname">
         <h2>Phone Number:</h2>
-        <input type="text" placeholder="Phone Number" ng-model="user.phone" required="true">
+        <input type="text" placeholder="Phone Number" ng-model="user.phone">
         <h2>Address:</h2>
-        <input type="text" placeholder="Address" ng-model="user.address" required="true">
-        <input type="text" placeholder="City" ng-model="user.city" required="true">
-        <input type="text" placeholder="State" ng-model="user.state" required="true">
-        <input type="text" placeholder="Zip" ng-model="user.zip" required="true">
+        <input type="text" placeholder="Address" ng-model="user.address">
+        <input type="text" placeholder="City" ng-model="user.city">
+        <input type="text" placeholder="State" ng-model="user.state">
+        <input type="text" placeholder="Zip" ng-model="user.zip">
       </div>
-      <button ng-hide="register" ng-click="login(user)">Login</button>
-      <button ng-show="register" ng-click="login(user)">Register</button>
+      <button ng-hide="register">Login</button>
+      <button ng-show="register">Register</button>
 
       <p ng-hide="register">If you do not have an account, please register by clicking <a href="" ng-click="register = true">here</a>.</p>
       <p ng-show="register">To login to an existing account, please click <a href="" ng-click="register = false">here</a>.</p>

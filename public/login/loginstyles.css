@@ -196,9 +196,12 @@ header {
 
 .calendar {
   width: 80%;
-  border: 1px solid #7a4e2b;
   margin: 20px auto;
   padding: 20px;
+}
+
+.fc-event-container a {
+  cursor: pointer;
 }
 
 .appointment {
@@ -333,6 +336,10 @@ footer h6 {
     border-bottom: 1px solid #7a4e2b;
     width: 100%;
     float: none;
+  }
+
+  .calendar {
+    width: 95%;
   }
 }
 

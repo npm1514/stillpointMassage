@@ -64,7 +64,6 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
 
   $scope.user = {};
   $scope.getUser = function () {
-
     userService.getUser()
     .then(function(response){
       $scope.user = response;
@@ -77,19 +76,18 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
 
 
   $scope.selectAppt = function(event){
-    console.log(event);
+    delete event.source;
     if($scope.user) {
       $scope.user.appts.selectedappt = event;
-      delete $scope.user.appts.selectedappt.source;
       userService.changeUser($scope.user)
       .then(function(response){
         console.log(response);
         window.location = 'http://localhost:9000/login/login.html#/review';
       });
-
     } else {
-      $scope.appt = event;
-      window.location = 'http://localhost:9000/#/login.html';
+      userService.nouser = event;
+      console.log(userService.nouser);
+        window.location = 'http://localhost:9000/#/login';
     }
 
   };

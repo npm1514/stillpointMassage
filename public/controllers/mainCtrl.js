@@ -1,5 +1,6 @@
 angular.module("stillpointMassage").controller("mainCtrl", function($scope, $location, userService) {
 
+
   $scope.user = {};
   $scope.getUser = function () {
 
@@ -18,6 +19,7 @@ angular.module("stillpointMassage").controller("mainCtrl", function($scope, $loc
     userService.logout()
     .then(function(response){
       console.log(response);
+      location.reload();
     });
   };
 

@@ -16,10 +16,24 @@
     <p>Monday-Thursday: 9am-7pm</p>
     <p>Friday: 9am-5pm</p>
     <p>Saturday: 9am-4pm</p>
-    
+
     <h2>Contact Us</h2>
     <p>ph: 330-650-1227</p>
     <p>em: thestillpointmassagecenter@gmail.com</p>
+
+    <div class="email-form">
+      <form>
+        <p>Name</p>
+        <input type="text" name="name" required placeholder="First and Last Name" ng-model="name">
+        <p>E-mail</p>
+        <input type="email" name="email" required placeholder="Enter a valid email address" ng-model="email">
+        <p>Message</p>
+        <textarea type="text" required placeholder="How may we help you?" ng-model="message"></textarea>
+        <br>
+        <h2>{{responseMessage}}</h2>
+        <button type="button" name="button" ng-click="sendEmail(name, email, message)">Submit</button>
+      </form>
+    </div>
 
     </p>
 

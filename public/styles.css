@@ -230,6 +230,11 @@ input {
   font-size:20px;
 }
 
+textarea {
+  font-family: 'Avenir LT Std 45 Book';
+  font-size:20px;
+}
+
 .practiceinfo h3 {
   cursor: pointer;
   width: max-content;
@@ -271,7 +276,7 @@ input {
 }
 
 .calendar {
-  max-width: 900px;
+  max-width: 80%;
   margin: auto;
   padding: 20px;
   font-family: 'Avenir LT Std 45 Book';
@@ -283,6 +288,52 @@ input {
 
 .calendar h4 {
   padding-top: 40px;
+}
+
+.fc-event-container a {
+  cursor: pointer;
+}
+
+.email-form input, .email-form textarea {
+  width: 600px;
+  border-radius: 3px;
+  border: 1px inset #eeeeee;
+  outline: none;
+}
+.email-form input {
+  height: 30px;
+}
+.email-form textarea {
+  overflow: auto;
+  height: 130px;
+  margin: 5px;
+  width: 596px;
+}
+.email-form {
+  font-family: 'Avenir LT Std 45 Book'
+}
+.email-form button {
+  margin-top: 20px;
+  padding: 5px;
+  width: 75px;
+  border-radius: 5px;
+  color: #333333;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+}
+
+input:required:valid, textarea:required:valid {
+  box-shadow: 0 0 5px #a0ce4e;
+  border: 2px solid #a0ce4e;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+}
+
+input:required:invalid:focus, textarea:required:invalid:focus {
+  box-shadow: 0 0 5px red;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
 }
 
 button {
@@ -374,11 +425,13 @@ ui-view {
   .pagetext {
     margin-top: 25px;
   }
+
+  .calendar {
+    width: 95%;
+  }
 }
 
-.fc-event-container a {
-  cursor: pointer;
-}
+
 
 @media only screen and (max-width: 365px) {
   .logo img {

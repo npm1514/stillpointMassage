@@ -1,4 +1,5 @@
 angular.module("stillpointMassage").service("userService", function($http) {
+    this.nouser = "";
     this.getUser = function (user) {
       return $http ({
         method: "GET",

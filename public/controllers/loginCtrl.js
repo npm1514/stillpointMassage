@@ -1,18 +1,26 @@
 angular.module("stillpointMassage").controller("loginCtrl", function($scope, $http, userService, apptService) {
 
 
+  console.log(userService.nouser);
+
 
   $scope.getUser = function () {
-
     userService.getUser()
     .then(function(response){
       $scope.user = response;
-      if ($scope.user) {
-        $scope.loggedin = true;
+
+      if (userService.nouser) {
+        $scope.user.appts.selectedappt = userService.nouser;
+        userService.changeUser($scope.user)
+        .then (function (response){
+
+        });
+        window.location = 'http://localhost:9000/login/login.html#/review';
       }
     });
   };
-  $scope.getUser();
+
+
 
   $scope.login = function(user) {
     $http.post('/auth', user)
@@ -25,8 +33,11 @@ angular.module("stillpointMassage").controller("loginCtrl", function($scope, $ht
       .catch(function (err) {
         console.error(err);
       });
+      $scope.getUser();
+      if (!userService.nouser) {
+        window.location = 'http://localhost:9000/login/login.html';
+      }
 
-      window.location = 'http://localhost:9000/login/login.html';
     }).catch(function (err) {
       console.error(err);
     });

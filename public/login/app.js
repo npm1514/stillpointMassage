@@ -21,6 +21,11 @@ angular.module("personalView", ['ui.router'])
         controller: 'reviewCtrl',
         templateUrl: './pages/review.html'
       })
+      .state('reviewcard', {
+        url: '/reviewcard',
+        controller: 'reviewcardCtrl',
+        templateUrl: './pages/reviewcard.html'
+      })
       .state('editusers', {
         url: '/editusers',
         controller: 'editusersCtrl',

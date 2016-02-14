@@ -39,6 +39,7 @@ angular.module("stillpointMassage", ['ui.router'])
       })
       .state('contact', {
         url: '/contact',
+        controller: 'contactCtrl',
         templateUrl: './pages/contact.html'
       });
       $urlRouterProvider

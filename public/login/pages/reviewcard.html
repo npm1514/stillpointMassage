@@ -1,0 +1,49 @@
+<div class="main">
+  <div class="left">
+    <h2>Review Appointment</h2>
+    <div class="appointment">
+      <div class="newappt">
+        <h2>Appointment Selected</h2>
+        <p>Date: {{user.appts.selectedappt.date}}</p>
+        <p>Time: {{user.appts.selectedappt.time}}</p>
+        <p>Appointment Duration: {{user.appts.selectedappt.duration}} minutes</p>
+        <p>Therapist: {{user.appts.selectedappt.therapist}}</p>
+      </div>
+
+      <div class="billing">
+        <h2>Billing Information</h2>
+        <p>Sub-total: ${{user.appts.selectedappt.cost}}.00</p>
+        <p>Insurance Deduction: ${{user.rateDiscount}}.00</p>
+        <p>Total: ${{user.appts.selectedappt.cost - user.rateDiscount}}.00</p>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="right">
+    <h2>Review Payment Information</h2>
+    <div class="appointment">
+      <h2>Payment Information</h2>
+      <p>Name on Card: {{user.payment.nameoncard}} </p>
+      <p>Card Number: {{user.payment.cardnumber}}</p>
+      <p>CVV Number: {{user.payment.cvvnumber}}</p>
+      <p>Expiration Date: {{user.payment.expiremonth}}/{{user.payment.expireyear}}</p>
+    </div>
+
+
+
+    <a ng-click="makePayment(user)" ui-sref="confirm">
+      <div class="revieworder">
+        <h2>Submit Order</h2>
+      </div>
+    </a>
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="button">
+  <a ui-sref="profile"><h5>Personal Profile</h5></a>
+</div>
