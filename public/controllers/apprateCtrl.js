@@ -82,7 +82,7 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
       userService.changeUser($scope.user)
       .then(function(response){
         console.log(response);
-        window.location = 'http://localhost:9000/login/login.html#/review';
+        window.location = '/login/login.html#/review';
       });
     } else {
       userService.nouser = event;

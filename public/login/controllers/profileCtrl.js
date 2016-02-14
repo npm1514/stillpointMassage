@@ -49,7 +49,7 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
       userService.deleteUser(user)
       .then(function(response){
         $scope.user = response;
-        window.location = 'http://localhost:9000';
+        window.location = '/';
       });
     };
   });

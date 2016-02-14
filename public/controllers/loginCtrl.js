@@ -15,7 +15,7 @@ angular.module("stillpointMassage").controller("loginCtrl", function($scope, $ht
         .then (function (response){
 
         });
-        window.location = 'http://localhost:9000/login/login.html#/review';
+        window.location = '/login/login.html#/review';
       }
     });
   };
@@ -36,7 +36,7 @@ angular.module("stillpointMassage").controller("loginCtrl", function($scope, $ht
       });
       $scope.getUser();
       if (!userService.nouser) {
-        window.location = 'http://localhost:9000/login/login.html';
+        window.location = '/login/login.html';
       }
 
     }).catch(function (err) {
