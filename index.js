@@ -12,6 +12,7 @@ var express   = require('express'),
 
   var app = express();
 
+
   require('./config/passport.js')(passport);
 
   app.use(session({
