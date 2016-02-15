@@ -99,6 +99,7 @@ header {
   padding: 3px;
   margin: 5px;
   display: inline-block;
+  border-bottom: 3px solid transparent;
 }
 
 .nav a:hover {

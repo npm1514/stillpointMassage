@@ -104,6 +104,7 @@ header {
   padding-top: 10px;
   display: inline-block;
   float: right;
+  box-sizing: border-box;
 }
 
 .nav a {
@@ -111,6 +112,7 @@ header {
   padding: 3px;
   margin: 5px;
   display: inline-block;
+  border-bottom: 3px solid transparent;
 }
 
 .nav a:hover {
