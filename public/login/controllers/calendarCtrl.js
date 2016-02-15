@@ -74,8 +74,16 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
   $scope.getCalendar = function () {
     apptService.getAppts()
     .then(function(response){
+      var appts = response;
+      for (var j = 0; j < appts.length; j++) {
+        if (moment(appts[j].date + "T" + appts[j].time)._d < moment()) {
+          appts[j].past = true;
+          apptService.changeAppt(appts[j])
+          .then(function(response){});
+        }
+      }
       for (var i = 0; i < response.length; i++) {
-        if (response[i].scheduled === false) {
+        if (response[i].scheduled === false && response[i].past === false) {
               calendar.push({
                 _id: response[i]._id,
                 start: moment(response[i].date + "T" + response[i].time)._d,
@@ -87,25 +95,25 @@ angular.module("personalView").controller("calendarCtrl", function($scope, apptS
               });
         }
       }
-      for (var j = 0; j < calendar.length; j++) {
-        if (calendar[j].therapist === "Jackie") {
-          calendar[j].color='pink';
-        } else if (calendar[j].therapist === "Rebecca") {
-          calendar[j].color='red';
-        } else if (calendar[j].therapist === "Melissa") {
-          calendar[j].color='purple';
-        } else if (calendar[j].therapist === "Israel") {
-          calendar[j].color='orange';
-        } else if (calendar[j].therapist === "Phyllis") {
-          calendar[j].color='brown';
-        } else if (calendar[j].therapist === "Sue") {
-          calendar[j].color='green';
-        } else if (calendar[j].therapist === "Heather") {
-          calendar[j].color='blue';
-        } else if (calendar[j].therapist === "Maude") {
-          calendar[j].color='#8d8d8d';
+      for (var k = 0; k < calendar.length; k++) {
+        if (calendar[k].therapist === "Jackie") {
+          calendar[k].color='pink';
+        } else if (calendar[k].therapist === "Rebecca") {
+          calendar[k].color='red';
+        } else if (calendar[k].therapist === "Melissa") {
+          calendar[k].color='purple';
+        } else if (calendar[k].therapist === "Israel") {
+          calendar[k].color='orange';
+        } else if (calendar[k].therapist === "Phyllis") {
+          calendar[k].color='brown';
+        } else if (calendar[k].therapist === "Sue") {
+          calendar[k].color='green';
+        } else if (calendar[k].therapist === "Heather") {
+          calendar[k].color='blue';
+        } else if (calendar[k].therapist === "Maude") {
+          calendar[k].color='#8d8d8d';
         } else {
-          calendar[j].color='#000';
+          calendar[k].color='#000';
         }
       }
       console.log(calendar);

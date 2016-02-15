@@ -14,6 +14,14 @@ angular.module("personalView").controller("profileCtrl", function($scope, userSe
         if ($scope.user.admin === true) {
           $scope.adminright = false;
         }
+        for (var i = 0; i < $scope.user.appts.schedappts.length; i++) {
+          if (moment($scope.user.appts.schedappts[i].date + "T" + $scope.user.appts.schedappts[i].time)._d < moment()) {
+            $scope.user.appts.schedappts[i].past = true;
+            $scope.user.appts.pastappts = $scope.user.appts.schedappts.splice(i);
+            $scope.changeUser($scope.user);
+          }
+        }
+
       });
     };
     $scope.getUser();

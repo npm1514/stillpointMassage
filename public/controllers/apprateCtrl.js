@@ -3,17 +3,24 @@ angular.module("stillpointMassage").controller("apprateCtrl", function($scope, a
   $scope.getAppts = function () {
     apptService.getAppts()
     .then(function(response){
+      for (var k = 0; k < appts.length; k++) {
+        if (moment(appts[k].date + "T" + appts[k].time)._d < moment()) {
+          appts[k].past = true;
+          apptService.changeAppt(appts[k])
+          .then(function(response){});
+        }
+      }
       for (var i = 0; i < response.length; i++) {
-        if (response[i].scheduled === false) {
-              appts.push({
-                _id: response[i]._id,
-                start: moment(response[i].date + "T" + response[i].time)._d,
-                end: moment(response[i].date + "T" + response[i].time).add(response[i].duration, 'minutes')._d,
-                title: response[i].therapist + "-" + response[i].duration + " min",
-                therapist: response[i].therapist,
-                duration: response[i].duration,
-                color: '#000'
-              });
+        if (response[i].scheduled === false && response[i].past === false) {
+          appts.push({
+            _id: response[i]._id,
+            start: moment(response[i].date + "T" + response[i].time)._d,
+            end: moment(response[i].date + "T" + response[i].time).add(response[i].duration, 'minutes')._d,
+            title: response[i].therapist + "-" + response[i].duration + " min",
+            therapist: response[i].therapist,
+            duration: response[i].duration,
+            color: '#000'
+          });
         }
       }
       for (var j = 0; j < appts.length; j++) {
