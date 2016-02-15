@@ -1,4 +1,4 @@
-angular.module("personalView").controller("reviewcardCtrl", function($scope, userService, apptService, payService) {
+angular.module("personalView").controller("reviewcardCtrl", function($scope, userService, apptService) {
   $scope.user = {};
 
   $scope.getUser = function () {
