@@ -36,6 +36,7 @@ angular.module("personalView").controller("editusersCtrl", function($scope, appt
     $scope.confirmchangeuserbutton = false;
     userService.changeUser(user)
     .then(function(response){
+      console.log(response);
       $scope.user = response;
     });
   };
