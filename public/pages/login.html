@@ -1,6 +1,5 @@
 <div class="pagetext">
-  <div class="login">
-    <form ng-submit="login(user)">
+    <form class="login" ng-submit="login(user)">
       <h2>Email:</h2>
       <input type="email" placeholder="Enter Valid Email" name="email" ng-model="user.email" required="true">
       <h2>Password:</h2>
@@ -25,5 +24,4 @@
       <p ng-show="register">To login to an existing account, please click <a href="" ng-click="register = false">here</a>.</p>
 
     </form>
-  </div>
 </div>

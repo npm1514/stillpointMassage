@@ -307,7 +307,8 @@ textarea {
   overflow: auto;
   height: 130px;
   margin: 5px;
-  width: 596px;
+  width: 600px;
+  padding: 0;
 }
 .email-form {
   font-family: 'Avenir LT Std 45 Book'
@@ -355,6 +356,7 @@ footer h6 {
 
 .login {
   width: 375px;
+  margin: auto;
 }
 
 .login h2 {
@@ -414,6 +416,10 @@ ui-view {
     text-align: center;
     padding: 0;
   }
+
+  .email-form input, .email-form textarea, iframe {
+    width: 95%;
+  }
 }
 
 @media only screen and (max-width: 525px) {
@@ -433,11 +439,27 @@ ui-view {
   .calendar {
     width: 95%;
   }
+
+  .login {
+    width: 95%;
+    margin: auto;
+  }
+
+  #calendar .fc-toolbar .fc-left,#calendar .fc-toolbar .fc-right {
+    float: none;
+    display: block;
+    width: max-content;
+    margin: auto;
+  }
+
+  #calendar .fc-toolbar .fc-left button,#calendar .fc-toolbar .fc-right button {
+    margin: 15px 0;
+  }
 }
 
 
 
-@media only screen and (max-width: 365px) {
+@media only screen and (max-width: 375px) {
   .logo img {
     float: none;
     margin: auto;

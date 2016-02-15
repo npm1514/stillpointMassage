@@ -2,7 +2,7 @@
   <h2>List of Users</h2>
   <input type="text" name="name" ng-model="scrub" placeholder="Filter by name or email">
 
-  <div class="body">
+
     <div class="people" ng-repeat="user in users | orderBy: user.firstname | filter: scrub" >
 
       <h2>Email: {{user.email}}
@@ -44,7 +44,7 @@
 
 
     </div>
-  </div>
+
 
 </div>
 

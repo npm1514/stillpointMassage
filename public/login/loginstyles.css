@@ -383,14 +383,54 @@ footer h6 {
 
   .calendar {
     width: 95%;
+    padding: 0;
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
+  footer {
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  #calendar .fc-toolbar .fc-left,#calendar .fc-toolbar .fc-right {
+    float: none;
+    display: block;
+    width: max-content;
+    margin: auto;
+  }
+
+  #calendar .fc-toolbar .fc-left button,#calendar .fc-toolbar .fc-right button {
+    margin: 15px 0;
+  }
+  .people {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
   .nav {
     float: none;
+    padding-right: 0;
+  }
+  .logo {
+    float: none;
+    margin: auto;
   }
   header {
     height: 250px;
   }
+  footer {
+    height: 80px;
+  }
+  .payleft, .payright, .payleft h3, .payright h3, .payright select, .payright input {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .adminpopup {
+    width: 80%;
+  }
+
 }
