@@ -30,6 +30,9 @@
       <h2>Rate Discount: ${{user.rateDiscount}}.00
       <input ng-show="editing" ng-model="user.rateDiscount" placeholder="Rate Discount"></h2>
 
+      <h2>Client Notes: {{user.notes}}
+      <input ng-show="editing" ng-model="user.notes" placeholder="Client Notes"></h2>
+
   <!-- Change user -->
       <button ng-hide="editing" type="button" ng-click="editing = true">Change User Info</button>
       <button ng-show="editing" type="button" ng-click="changeUser(user);editing=false">Save Changes</button>
