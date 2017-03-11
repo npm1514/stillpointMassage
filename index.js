@@ -4,7 +4,6 @@ var express   = require('express'),
   mongoose    = require('mongoose'),
   session     = require('express-session'),
   passport    = require('passport'),
-  ejs         = require('ejs'),
   path        = require('path');
 
   var apptCtrl = require('./controllers/apptCtrl');
